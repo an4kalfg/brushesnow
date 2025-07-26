@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5VSFCDQCRW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5VSFCDQCRW');
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brush Details</title>
+  <meta name="robots" content="index, follow">
+  <meta name="pinterest-rich-pin" content="true">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 40px; max-width: 800px; margin: auto; background: #fdfdfd; }
+    h1 { color: #00775f; }
+    img { max-width: 100%; height: auto; border-radius: 8px; margin-top: 20px; }
+    p { line-height: 1.6; }
+    .btn {
+      display: inline-block;
+      background: #00775f;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 20px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="brush-title">Loading...</h1>
+  <img id="brush-img" src="" alt="Brush Preview" />
+  <p id="brush-desc"></p>
+  <a id="brush-link" class="btn" href="#" target="_blank">Download</a>
+
+  <script>
+    const brushes = {
+  "egyptian": {
+    title: "Egyptian Procreate Brush Set",
+    img: "https://i.postimg.cc/BQ72mV4B/il-1140x-N-4753951718-offi.webp",
+    desc: "Elegant and intricate brushes inspired by ancient Egyptian art and symbols.",
+    link: "https://www.creativefabrica.com/product/egyptian-procreate-brush-set/ref/8485983/?campaign=_websitecanva"
+  },
+  "manga": {
+    title: "Awesome Manga Procreate Brushes",
+    img: "https://i.postimg.cc/V6qz6vYL/main-o.avif",
+    desc: "Dynamic brush pack ideal for manga, anime, and comic-style artwork.",
+    link: "https://www.creativefabrica.com/product/awesome-manga-procreate-brushes/ref/8485983/?campaign=_websitecanva"
+  },
+  "colorwood": {
+    title: "ColorWood Studio Brush Set for Procreate",
+    img: "https://i.postimg.cc/wxNw1J8k/Color-Wood-Studio-Brush-set-for-Procreate-Graphics-126313462-1-1-580x387.png",
+    desc: "Versatile and vibrant brushes for colorful digital illustrations.",
+    link: "https://www.creativefabrica.com/product/colorwood-studio-brush-set-for-procreate/ref/8485983/?campaign=_websitecanva"
+  },
+  "sparkle": {
+    title: "Sparkle Glow Procreate Brushes",
+    img: "https://i.postimg.cc/zDkR2Xnr/678d3c228841977-685a65bc11395.jpg",
+    desc: "Add magical sparkle and glowing effects to your artwork with ease.",
+    link: "https://www.creativefabrica.com/product/sparkle-glow-procreate-brushes/ref/8485983/?campaign=_websitecanva"
+  },
+  "halloween": {
+    title: "Halloween Stamp Set for Procreate",
+    img: "https://i.postimg.cc/ZYyJ0f5D/ori-3837791-p1ohxmiomo9i1ggl0mrh137qxm0qxycdaxm6x6p3-halloween-stamp-set-for-procreate.jpg",
+    desc: "Spooky and fun stamps perfect for Halloween-themed designs.",
+    link: "https://www.creativefabrica.com/product/halloween-stamp-set-for-procreate/ref/8485983/?campaign=_websitecanva"
+  },
+
+      "on-the-road": {
+        title: "On the Road - Procreate Brush Set",
+        img: "https://i.postimg.cc/B6RGBqkr/thumbnail-6.jpg",
+        desc: "A fun and creative brush pack inspired by travel and adventure.",
+        link: "https://www.creativefabrica.com/product/on-the-road-procreate-brush-set/ref/8485983/?campaign=_websitecanva"
+      },
+      "perfect-oils": {
+        title: "Perfect Oils for Procreate: 87+ Brushes",
+        img: "https://i.postimg.cc/3R4sRsNn/cover-perfect-oils4-main-horizontal-o.avif",
+        desc: "Realistic oil brush set to bring traditional painting feel to digital art.",
+        link: "https://www.creativefabrica.com/product/perfect-oils-for-procreate-87-brushes/ref/8485983/?campaign=_websitecanva"
+      },
+      "calendar-kit": {
+        title: "Procreate Stamp Mini Calendar Kit",
+        img: "https://i.postimg.cc/9M6vqLqV/img-1863-e184b33795788daf5bd78f14036f7f1705a115f4be490a067c70874bf960364a.jpg",
+        desc: "Handy calendar stamp kit to organize your artwork and journaling.",
+        link: "https://www.creativefabrica.com/product/procreate-stamp-mini-calendar-kit/ref/8485983/?campaign=_websitecanva"
+      },
+      "texture-sauce": {
+        title: "Texture Sause Procreate Brush Kit",
+        img: "https://i.postimg.cc/524DvYjH/preview-01-c6e2780365fcf6b01c9416076ae6393d30008d254e0597bdd870ad328add1f85.jpg",
+        desc: "Add depth and character with this versatile texture brush set.",
+        link: "https://www.creativefabrica.com/product/texture-sause-procreate-brush-kit/ref/8485983/?campaign=_websitecanva"
+      },
+      "nature-set": {
+        title: "Nature Procreate Brush Set | 70 Brushes",
+        img: "https://i.postimg.cc/B6HmR4X9/IMG-2225.webp",
+        desc: "Create stunning nature-inspired art with 70 organic brushes.",
+        link: "https://www.creativefabrica.com/product/nature-procreate-brush-set-70-brushes/ref/8485983/?campaign=_websitecanva"
+      },
+
+      "real-needles": {
+        title: "The Real Needles Tattoo Brushes",
+        img: "https://i.postimg.cc/Xv03T7v4/11-o.avif",
+        desc: "High-detail tattoo brushes for Procreate — ideal for precise linework and stencil designs.",
+        link: "https://www.creativefabrica.com/product/the-real-needles-tattoo-brushes/ref/8485983/?campaign=_websitecanva"
+      },
+      "hair-brushes": {
+        title: "Procreate Hair Brushes",
+        img: "https://i.postimg.cc/brdjQZmH/1-o.avif",
+        desc: "Perfect for drawing realistic hair textures including curls, waves, and volume.",
+        link: "https://www.creativefabrica.com/product/procreate-hair-brushes-and-stamps/ref/8485983/?campaign=_websitecanva"
+      },
+      "650-procreate-brushes": {
+        title: "650 Procreate Brushes",
+        img: "https://i.postimg.cc/BbyfNJyW/cmmain-o.avif",
+        desc: "A massive brush bundle for all types of creative projects — from sketching to full illustrations.",
+        link: "https://www.creativefabrica.com/product/650-procreate-brushes-mega-bundle/ref/8485983/?campaign=_websitecanva"
+      },
+      "faces-brushes": {
+        title: "300 Male Faces Brushes",
+        img: "https://i.postimg.cc/vT4p4pm0/il-1140x-N-6858473874-nsqd.webp",
+        desc: "Sketch realistic male faces quickly with this extensive brush set.",
+        link: "https://www.creativefabrica.com/product/300-procreate-male-faces-brushes/ref/8485983/?campaign=_websitecanva"
+      },
+      "house-stamps": {
+        title: "Cartoon House Stamps",
+        img: "https://i.postimg.cc/sxbb7wQs/il-1140x-N-6128487024-lwjb.webp",
+        desc: "Fun and whimsical cartoon house stamps for playful scenes and illustrations.",
+        link: "https://www.creativefabrica.com/product/cartoon-house-95-procreate-stamps/ref/8485983/?campaign=_websitecanva"
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (id && brushes[id]) {
+      const data = brushes[id];
+      document.getElementById("brush-title").textContent = data.title;
+      document.getElementById("brush-img").src = data.img;
+      document.getElementById("brush-img").alt = data.title;
+      document.getElementById("brush-desc").textContent = data.desc;
+      document.getElementById("brush-link").href = data.link;
+    } else {
+      document.body.innerHTML = "<h1>Brush not found</h1><p>Please check the link or return to the homepage.</p>";
+    }
+  </script>
+</body>
+</html>

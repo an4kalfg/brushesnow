@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Category | BrushesNow</title>
+  <meta name="description" content="Browse Procreate brushes by category: anime, black and white, manga, shading, textures, and more."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="stylesheet" href="style.css"/>
+
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="category.html?cat=anime">Anime</a>
+    <a href="category.html?cat=blackwhite">Black &amp; White</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1 id="h1">Procreate Brushes</h1>
+  <p id="sub">Browse curated brush packs and stamps. Click Download to open the full details.</p>
+</div>
+
+<section class="brushes">
+  <div class="card-container" id="grid"></div>
+</section>
+
+<script src="brushes.js"></script>
+<script>
+  const brushes = window.brushes || {};
+  const params = new URLSearchParams(location.search);
+  const cat = (params.get("cat") || "").toLowerCase().trim();
+
+  function inferTags(b){
+    const t = ((b.title||"") + " " + (b.desc||"")).toLowerCase();
+    const tags = new Set();
+
+    // Core intent buckets
+    if (/(anime|manga|screentone|pose|chibi)/.test(t)) tags.add("anime");
+    if (/(manga|screentone|halftone|comic)/.test(t)) tags.add("manga");
+    if (/(tattoo|spitshading)/.test(t)) tags.add("tattoo");
+    if (/(texture|fabric|clothes)/.test(t)) tags.add("texture");
+    if (/(pose|stamps|stamp)/.test(t)) tags.add("stamps");
+    if (/(crosshatch|hatching|ink|inking|lineart)/.test(t)) tags.add("inking");
+    if (/(shade|shading|gradient)/.test(t)) tags.add("shading");
+
+    // Black & white bucket (broad, useful for SEO)
+    if (/(black\s*&\s*white|black\s*and\s*white|b\s*&\s*w|monochrome|grayscale|greyscale|ink|crosshatch|hatching|screentone|halftone|lineart)/.test(t)) {
+      tags.add("blackwhite");
+    }
+
+    // Optional explicit categories in data
+    if (Array.isArray(b.category)) b.category.forEach(x => tags.add(String(x).toLowerCase()));
+    else if (typeof b.category === "string" && b.category.trim()) tags.add(b.category.toLowerCase());
+
+    // Always allow "all"
+    tags.add("all");
+    return Array.from(tags);
+  }
+
+  // Page text
+  const nice = (s)=> (s||"").replace(/[-_]+/g," ").replace(/\b\w/g, c => c.toUpperCase());
+  const titleBase = cat ? `${nice(cat)} Procreate Brushes` : "Procreate Brushes";
+  document.getElementById("h1").textContent = titleBase;
+  document.title = `${titleBase} | BrushesNow`;
+
+  // Build grid
+  const grid = document.getElementById("grid");
+  const entries = Object.entries(brushes);
+
+  const filtered = entries.filter(([id,b])=>{
+    const tags = inferTags(b);
+    if (!cat) return true;
+    return tags.includes(cat);
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div style="padding:20px; text-align:center; width:100%;">
+      <h2>No items yet</h2>
+      <p>Add more brushes, or try another category.</p>
+      <p><a href="categories.html">View all categories</a></p>
+    </div>`;
+  } else {
+    grid.innerHTML = filtered.map(([id,b])=>`
+      <div class="card">
+        <img src="${b.img}" alt="${(b.title||"").replace(/"/g,"&quot;")}">
+        <h3>${b.title||""}</h3>
+        <p>${b.desc||""}</p>
+        <a href="brush.html?id=${encodeURIComponent(id)}" class="btn">Download</a>
+      </div>
+    `).join("");
+  }
+</script>
+</body>
+</html>

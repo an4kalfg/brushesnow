@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treasure of Art Tools</title>
+  <meta name="description" content="Free Procreate brushes, stamps, textures, shading, patterns, and more. Browse categories and find the perfect pack for your next artwork." />
+
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style_additions.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <h1 class="site-title">Treasure of Art Tools</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="#tutorials">Tutorials</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <!-- Modern hero with search -->
+  <section class="hero">
+    <h2>Free Procreate Brushes for Digital Artists</h2>
+    <p>Curated brush packs and stamps. Search by keywords like <b>watercolor</b>, <b>texture</b>, <b>manga</b>, <b>shading</b>, <b>stamps</b>.</p>
+
+    <div class="hero-actions">
+      <a href="categories.html" class="btn btn-primary">Browse Categories</a>
+      <a href="#free-brushes" class="btn btn-ghost">View Brushes</a>
+    </div>
+
+    <div class="hero-search">
+      <input id="searchInput" type="search" placeholder="Search brushes…" autocomplete="off" />
+      <div id="searchHint" class="search-hint">Tip: try “texture”, “stamp”, “pencil”, “pastel”.</div>
+    </div>
+  </section>
+
+  <!-- BRUSHES -->
+  <main class="container">
+    <section id="free-brushes" class="section">
+      <h2 class="section-title">Free Procreate Brushes</h2>
+
+      <!-- IMPORTANT: only ONE grid container. No legacy cards below. -->
+      <div class="card-container" id="brushGrid"></div>
+
+      <div class="center" style="margin-top: 18px;">
+        <button id="loadMoreBtn" class="btn btn-primary">Load more</button>
+      </div>
+    </section>
+
+    <!-- Tutorials moved below brushes -->
+    <section id="tutorials" class="section">
+      <h2 class="section-title">Procreate Tutorials</h2>
+
+      <div class="card-container">
+        <div class="card">
+          <img src="https://i.ytimg.com/vi/o4rPnjlzD0U/hqdefault.jpg" alt="Getting Started with Procreate">
+          <h3>Getting Started with Procreate</h3>
+          <p>Learn the basics of Procreate and start creating digital art in no time.</p>
+          <a href="https://www.youtube.com/watch?v=o4rPnjlzD0U" class="btn btn-primary" target="_blank" rel="noopener">Watch Tutorial</a>
+        </div>
+
+        <div class="card">
+          <img src="https://i.ytimg.com/vi/hkjRhDqOlus/hqdefault.jpg" alt="How To Draw Tattoo Stencils In Procreate">
+          <h3>How To Draw Tattoo Stencils In Procreate</h3>
+          <p>Create better tattoos with this tutorial.</p>
+          <a href="https://www.youtube.com/watch?v=hkjRhDqOlus" class="btn btn-primary" target="_blank" rel="noopener">Watch Tutorial</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="section-title">About Us</h2>
+      <p class="muted">
+        We collect and share high-quality Procreate brushes and stamps from trusted creators. Our goal is to help digital artists find great tools faster.
+      </p>
+    </section>
+
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact</h2>
+      <p class="muted center">Have questions or suggestions? Email us: <a href="mailto:clonemel872@gmail.com">clonemel872@gmail.com</a>.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="categories.html">Categories</a>
+<a href="privacy.html">Privacy</a>
+    </div>
+    <div class="muted">© 2026 Treasure of Art Tools</div>
+  </footer>
+
+  <script src="brushes.js"></script>
+  <script>
+    // ====== Render brushes on homepage from brushes.js ======
+    const grid = document.getElementById("brushGrid");
+    const btn  = document.getElementById("loadMoreBtn");
+    const q    = document.getElementById("searchInput");
+
+    const entries = Object.entries(window.brushes || {});
+    // optional: sort by title for stability
+    // entries.sort((a,b)=> (a[1].title||"").localeCompare(b[1].title||""));
+
+    const STEP = 20;
+    let shown = 0;
+
+    function cardHTML(id, b){
+      const img = b.img || "favicon.png";
+      const title = b.title || "";
+      const desc = b.desc || "";
+      return `
+        <div class="card">
+          <img src="${img}" alt="${title}">
+          <h3>${title}</h3>
+          <p>${desc}</p>
+          <a href="brush.html?id=${id}" class="btn btn-primary">Download</a>
+        </div>
+      `;
+    }
+
+    function renderMore(){
+      const slice = entries.slice(shown, shown + STEP);
+      slice.forEach(([id, b]) => grid.insertAdjacentHTML("beforeend", cardHTML(id, b)));
+      shown += slice.length;
+      if (shown >= entries.length) btn.style.display = "none";
+    }
+
+    function clearGrid(){
+      grid.innerHTML = "";
+      shown = 0;
+      btn.style.display = "";
+    }
+
+    function applySearch(term){
+      term = (term || "").trim().toLowerCase();
+
+      // If search empty => normal pagination
+      if (!term){
+        clearGrid();
+        renderMore();
+        return;
+      }
+
+      // Search mode: show all matches, hide load more
+      btn.style.display = "none";
+      grid.innerHTML = "";
+      const matches = entries.filter(([id, b])=>{
+        const hay = `${id} ${b.title||""} ${b.desc||""}`.toLowerCase();
+        return hay.includes(term);
+      });
+
+      matches.forEach(([id, b]) => grid.insertAdjacentHTML("beforeend", cardHTML(id, b)));
+    }
+
+    // Initial render
+    renderMore();
+
+    btn.addEventListener("click", renderMore);
+
+    // Wire up search
+    q.addEventListener("input", (e)=>applySearch(e.target.value));
+  </script>
+
+</body>
+</html>

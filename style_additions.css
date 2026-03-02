@@ -1,0 +1,66 @@
+/* === Patch: center card buttons + center Load more button === */
+
+/* Ensure cards behave consistently */
+.card, .brush-card, .tutorial-card {
+  box-sizing: border-box;
+}
+
+/* Center the main CTA button inside brush cards */
+.card button,
+.brush-card button {
+  display: inline-block;
+}
+
+/* If buttons are wrapped in a link (common in this site), center via the link */
+.card a,
+.brush-card a {
+  display: block;
+  text-align: center;
+}
+
+/* Some layouts may place the button directly without <a> wrapper */
+.card .btn,
+.brush-card .btn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Keep titles/paragraphs as they are; only center the action area */
+.card button,
+.brush-card button,
+.card .btn,
+.brush-card .btn {
+  margin-top: 10px;
+}
+
+/* Center the Load more button area */
+#loadMoreBtn {
+  display: inline-block !important;
+}
+
+/* Common wrapper patterns */
+.load-more,
+.load-more-wrap,
+.load-more-container,
+#loadMoreWrap,
+#loadMoreContainer {
+  text-align: center;
+  margin: 24px 0;
+}
+
+/* Fallback: if the button is inside a generic div, center it */
+button#loadMoreBtn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure the button doesn't get pushed left by floats */
+#loadMoreBtn, .load-more button {
+  float: none !important;
+}
+
+/* Optional: make sure card footer area doesn't left-align the button */
+.card .card-actions,
+.brush-card .card-actions {
+  text-align: center;
+}

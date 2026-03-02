@@ -11,6 +11,7 @@
   <meta name="description" content="Browse Procreate brushes by category: anime, black and white, manga, shading, textures, and more."/>
   <meta name="robots" content="index,follow"/>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style_additions.css"/>
 </head>
 <body>
 
@@ -92,7 +93,7 @@
         <img src="${b.img}" alt="${(b.title||"").replace(/"/g,"&quot;")}">
         <h3>${b.title||""}</h3>
         <p>${b.desc||""}</p>
-        <a href="brush.html?id=${encodeURIComponent(id)}" class="btn">Download</a>
+        <a href="brush.html?id=${encodeURIComponent(id)}" class="btn btn-primary">Download</a>
       </div>
     `).join("");
   }

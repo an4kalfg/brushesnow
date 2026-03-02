@@ -11,6 +11,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style_additions.css" />
 </head>
 <body>
 
@@ -61,14 +62,14 @@
 
       <div class="card-container">
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=800&q=60" alt="Getting Started with Procreate">
+          <img src="apple-touch-icon.png" alt="Getting Started with Procreate">
           <h3>Getting Started with Procreate</h3>
           <p>Learn the basics of Procreate and start creating digital art in no time.</p>
           <a href="#" class="btn btn-primary">Watch Tutorial</a>
         </div>
 
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1526481280695-3c687fd5432c?auto=format&fit=crop&w=800&q=60" alt="How To Draw Tattoo Stencils In Procreate">
+          <img src="favicon.png" alt="How To Draw Tattoo Stencils In Procreate">
           <h3>How To Draw Tattoo Stencils In Procreate</h3>
           <p>Create better tattoos with this tutorial.</p>
           <a href="#" class="btn btn-primary">Watch Tutorial</a>
@@ -85,13 +86,14 @@
 
     <section id="contact" class="section">
       <h2 class="section-title">Contact</h2>
-      <p class="muted">Have questions or suggestions? Reach out via email.</p>
+      <p class="muted">Have questions or suggestions? Email us: <a href="mailto:clonemel872@gmail.com">clonemel872@gmail.com</a>.</p>
     </section>
   </main>
 
   <footer class="footer">
     <div class="footer-links">
-      <a href="categories.html">Categories</a> <a href="privacy.html">Privacy</a>
+      <a href="categories.html">Categories</a>
+<a href="privacy.html">Privacy</a>
     </div>
     <div class="muted">© 2026 Treasure of Art Tools</div>
   </footer>
@@ -160,6 +162,8 @@
 
     // Initial render
     renderMore();
+
+    btn.addEventListener("click", renderMore);
 
     // Wire up search
     q.addEventListener("input", (e)=>applySearch(e.target.value));

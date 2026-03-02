@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories | BrushesNow</title>
+  <meta name="description" content="Browse Procreate brush categories: stamps, textures, shading, manga, anime and more." />
+
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style_additions.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Treasure of Art Tools</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="categories.html" class="active">Categories</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <section class="hero hero--compact">
+    <h2>Categories</h2>
+    <p>Pick a category to explore curated Procreate brushes, stamps, textures, and packs.</p>
+  </section>
+
+  <main class="section">
+    <div class="card-container" id="catGrid"></div>
+  </main>
+
+  <script src="brushes.js"></script>
+  <script>
+    // ---- categorization rules (simple, SEO-friendly) ----
+    const RULES = [
+      { key: "stamps",     label: "Stamps",      re: /(stamp|stamps|brush stamp|pose|poses|base|bases|creator|toolbox|calendar|tarot|cards|floorplan|map)/i },
+      { key: "texture",    label: "Texture",     re: /(texture|grain|paper|seamless|wallpaper|lace|fabric|clothes|cloth|woodblock|ornament)/i },
+      { key: "anime",      label: "Anime",       re: /(anime|chibi|couple|manga style|pose base|figure poses|male pose|baby poses)/i },
+      { key: "shading",    label: "Shading",     re: /(shading|shade|halftone|screentone|crosshatch|cross-hatch|hatching|spitshading|light beam|smoke|cloud|storm)/i },
+      { key: "manga",      label: "Manga",       re: /(manga|screentone|halftone|comic|comics)/i },
+      { key: "blackwhite", label: "Black & White", re: /(black\s*&\s*white|blackwhite|ink|inking|lineart|line art|crosshatch|screentone|halftone)/i },
+      { key: "inking",     label: "Inking",      re: /(ink|inking|lineart|line art|pen|pencil|ransom type)/i },
+      { key: "tattoo",     label: "Tattoo",      re: /(tattoo|stencil|spitshading)/i },
+      { key: "watercolor", label: "Watercolor",  re: /(watercolor|aquarelle|aquarel|water soluble|liquid)/i },
+      { key: "pastels",    label: "Pastels",     re: /(pastel|pastels)/i },
+      { key: "markers",    label: "Markers",     re: /(marker|alcohol marker)/i },
+      { key: "pencil",     label: "Pencil",      re: /(pencil)/i },
+      { key: "patterns",   label: "Patterns",    re: /(pattern|patterns)/i },
+      { key: "holiday",    label: "Holiday",     re: /(christmas|halloween|easter|mother\s*'?s day)/i },
+      { key: "fantasy",    label: "Fantasy",     re: /(fantasy|viking|jungle|monster)/i },
+      { key: "effects",    label: "Effects",     re: /(smoke|light beam|cloud|storm)/i },
+      { key: "palettes",   label: "Palettes",    re: /(palette|palettes|color palette)/i },
+      { key: "lettering",  label: "Lettering",   re: /(lettering|grid)/i },
+    ];
+
+    function categoriesForBrush(b){
+      const text = ((b.title||"") + " " + (b.desc||"")).toLowerCase();
+      const cats = [];
+      for(const r of RULES){
+        if(r.re.test(text)) cats.push(r.key);
+      }
+      // fallback
+      if(cats.length === 0) cats.push("other");
+      return [...new Set(cats)];
+    }
+
+    const LABELS = Object.fromEntries(RULES.map(r => [r.key, r.label]));
+    LABELS.other = "Other";
+
+    const all = window.brushes || {};
+    const counts = {};
+    for(const [id,b] of Object.entries(all)){
+      for(const c of categoriesForBrush(b)){
+        counts[c] = (counts[c]||0) + 1;
+      }
+    }
+
+    // order: most popular first, then alpha
+    const entries = Object.entries(counts)
+      .sort((a,b) => b[1]-a[1] || (LABELS[a[0]]||a[0]).localeCompare(LABELS[b[0]]||b[0]));
+
+    const grid = document.getElementById("catGrid");
+
+    function coverClass(cat){
+      // deterministic palette buckets
+      const palettes = ["c1","c2","c3","c4","c5","c6","c7","c8"];
+      let h = 0;
+      for(let i=0;i<cat.length;i++) h = (h*31 + cat.charCodeAt(i)) >>> 0;
+      return palettes[h % palettes.length];
+    }
+
+    function card(cat){
+      const label = LABELS[cat] || (cat.charAt(0).toUpperCase()+cat.slice(1));
+      return `
+        <div class="card cat-card">
+          <div class="cat-cover ${coverClass(cat)}" aria-hidden="true"></div>
+          <h3>${label}</h3>
+          <p>Explore this category.</p>
+          <a href="category.html?cat=${encodeURIComponent(cat)}"><button>Open</button></a>
+        </div>
+      `;
+    }
+
+    grid.innerHTML = entries.map(([cat]) => card(cat)).join("");
+  </script>
+
+</body>
+</html>

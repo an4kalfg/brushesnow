@@ -1,0 +1,39 @@
+/* ===== site additions (safe) ===== */
+
+/* Generic section styling for pages using .section */
+.section{
+  padding: 40px 20px;
+  text-align: center;
+}
+.section-title{
+  margin: 0 0 22px;
+  font-size: 34px;
+}
+
+/* Center helper */
+.center{
+  text-align:center;
+}
+
+/* Card content alignment (prevents left-shift) */
+.card{
+  text-align: center;
+}
+
+/* Make buttons centered inside cards */
+.card .btn{
+  display: inline-block;
+  margin: 12px auto 0;
+}
+
+/* Ensure Load more button stays centered */
+#loadMoreBtn{
+  display: inline-block;
+  margin: 0 auto;
+}
+
+/* Avoid image cropping if you prefer full preview */
+.card img{
+  object-fit: contain;
+  background: #fff;
+}

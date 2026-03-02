@@ -1,0 +1,63 @@
+/* === Patch: no-crop images + wider cards + centered tutorials/about === */
+
+/* Make grids responsive and a bit wider */
+.card-container{
+  width: min(1400px, 96%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* Ensure cards don't overflow and keep consistent spacing */
+.card{
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Do NOT crop images inside cards */
+.card img{
+  width: 100%;
+  height: 190px;          /* keeps layout stable */
+  object-fit: contain;    /* <<< no crop */
+  background: #ffffff;    /* nice letterbox background */
+  display: block;
+}
+
+/* If your CSS sets object-fit: cover somewhere, this overrides it */
+.card img[style]{
+  object-fit: contain !important;
+}
+
+/* Center tutorials grid on the page */
+.tutorials .card-container,
+#tutorials .card-container,
+.tutorial-grid,
+.tutorials-grid{
+  width: min(1100px, 94%);
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  justify-items: center;
+}
+
+/* Ensure tutorial cards don't stick left if flex was used */
+.tutorials, #tutorials{
+  text-align: center;
+}
+
+/* Center About/Contact text blocks */
+.about, #about, .contact, #contact{
+  text-align: center;
+}
+.about p, #about p, .contact p, #contact p{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 850px;
+}
+
+/* Optional: slightly larger section titles centered */
+.section-title{
+  text-align: center;
+}

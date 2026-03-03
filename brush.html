@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5VSFCDQCRW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5VSFCDQCRW');
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<title>Brush Details</title>
+  <meta name="robots" content="index, follow">
+  <meta name="pinterest-rich-pin" content="true">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 40px; max-width: 800px; margin: auto; background: #fdfdfd; }
+    h1 { color: #00775f; }
+    img { max-width: 100%; height: auto; border-radius: 8px; margin-top: 20px; }
+    p { line-height: 1.6; }
+    .btn {
+      display: inline-block;
+      background: #00775f;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 20px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="brush-title">Loading...</h1>
+  <img id="brush-img" src="" alt="Brush Preview" />
+  <p id="brush-desc"></p>
+  <a id="brush-link" class="btn" href="#" target="_blank">Download</a>
+
+  <script src="brushes.js"></script>
+<script>
+    const brushes = window.brushes;
+const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (id && brushes[id]) {
+      const data = brushes[id];
+      document.getElementById("brush-title").textContent = data.title;
+      document.getElementById("brush-img").src = data.img;
+      document.getElementById("brush-img").alt = data.title;
+      document.getElementById("brush-desc").textContent = data.desc;
+      document.getElementById("brush-link").href = data.link;
+      // Dynamic SEO
+      document.title = `${data.title} | BrushesNow`;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        const clean = (data.desc || "").replace(/\s+/g, " ").trim();
+        metaDesc.setAttribute("content", clean.slice(0, 155));
+      }
+
+    } else {
+      document.body.innerHTML = "<h1>Brush not found</h1><p>Please check the link or return to the homepage.</p>";
+    }
+  </script>
+</body>
+</html>

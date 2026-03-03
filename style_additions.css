@@ -1,3 +1,12 @@
+/* Ensure category cover has visible height */
+.cat-card .cat-cover{
+  height: 92px;
+  border-radius: 16px;
+  width: 100%;
+  margin: 0 auto 14px;
+  background-color: rgba(0, 124, 95, 0.08);
+}
+
 /* ===== site additions (safe) ===== */
 
 /* Generic section styling for pages using .section */

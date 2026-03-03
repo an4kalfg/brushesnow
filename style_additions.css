@@ -1,0 +1,60 @@
+/* ===== site additions (safe) ===== */
+
+/* Generic section styling for pages using .section */
+.section{
+  padding: 40px 20px;
+  text-align: center;
+}
+.section-title{
+  margin: 0 0 22px;
+  font-size: 34px;
+}
+
+/* Center helper */
+.center{
+  text-align:center;
+}
+
+/* Card content alignment (prevents left-shift) */
+.card{
+  text-align: center;
+}
+
+/* Make buttons centered inside cards */
+.card .btn{
+  display: inline-block;
+  margin: 12px auto 0;
+}
+
+/* Ensure Load more button stays centered */
+#loadMoreBtn{
+  display: inline-block;
+  margin: 0 auto;
+}
+
+/* Avoid image cropping if you prefer full preview */
+.card img{
+  object-fit: contain;
+  background: #fff;
+}
+
+
+/* === Category cover icons (user SVG style) === */
+.cat-card .cat-cover{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Map category -> svg */
+.cat-card .cat-cover.cat-stamps{   background-image: url("/cat-icons/stamps.svg"); }
+.cat-card .cat-cover.cat-texture{  background-image: url("/cat-icons/texture.svg"); }
+.cat-card .cat-cover.cat-anime{    background-image: url("/cat-icons/anime.svg"); }
+.cat-card .cat-cover.cat-shading{  background-image: url("/cat-icons/shading.svg"); }
+.cat-card .cat-cover.cat-manga{    background-image: url("/cat-icons/manga.svg"); }
+.cat-card .cat-cover.cat-bw{       background-image: url("/cat-icons/blackwhite.svg"); }
+.cat-card .cat-cover.cat-inking{   background-image: url("/cat-icons/inking.svg"); }
+.cat-card .cat-cover.cat-tattoo{   background-image: url("/cat-icons/tattoo.svg"); }
+
+/* Fallback */
+.cat-card .cat-cover.cat-other{    background-image: url("/cat-icons/other.svg"); }

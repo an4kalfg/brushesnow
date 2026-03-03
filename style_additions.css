@@ -38,26 +38,23 @@
   background: #fff;
 }
 
-/* === Category cover images (SVG) === */
+
+/* === Category cover icons (user SVG style) === */
 .cat-card .cat-cover{
-  height: 110px;
-  border-radius: 10px;
-  margin: 0 0 14px;
-  background-color: #0f766e;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
 }
 
-/* Map category -> cover */
-.cat-cover.cat-stamps{ background-image: url("/cat-icons/stamps.svg"); }
-.cat-cover.cat-texture{ background-image: url("/cat-icons/texture_tile.svg"); }
-.cat-cover.cat-anime{ background-image: url("/cat-icons/anime_face.svg"); }
-.cat-cover.cat-shading{ background-image: url("/cat-icons/shading_brush.svg"); }
-.cat-cover.cat-manga{ background-image: url("/cat-icons/manga.svg"); }
-.cat-cover.cat-bw{ background-image: url("/cat-icons/blackwhite.svg"); }
-.cat-cover.cat-inking{ background-image: url("/cat-icons/inking.svg"); }
-.cat-cover.cat-tattoo{ background-image: url("/cat-icons/tattoo_machine.svg"); }
+/* Map category -> svg */
+.cat-card .cat-cover.cat-stamps{   background-image: url("cat-icons/stamps.svg"); }
+.cat-card .cat-cover.cat-texture{  background-image: url("cat-icons/texture.svg"); }
+.cat-card .cat-cover.cat-anime{    background-image: url("cat-icons/anime.svg"); }
+.cat-card .cat-cover.cat-shading{  background-image: url("cat-icons/shading.svg"); }
+.cat-card .cat-cover.cat-manga{    background-image: url("cat-icons/manga.svg"); }
+.cat-card .cat-cover.cat-bw{       background-image: url("cat-icons/blackwhite.svg"); }
+.cat-card .cat-cover.cat-inking{   background-image: url("cat-icons/inking.svg"); }
+.cat-card .cat-cover.cat-tattoo{   background-image: url("cat-icons/tattoo.svg"); }
 
 /* Fallback */
-.cat-cover.cat-other{ background-image: url("/cat-icons/texture_tile.svg"); }
+.cat-card .cat-cover.cat-other{    background-image: url("cat-icons/other.svg"); }

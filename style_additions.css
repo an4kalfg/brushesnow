@@ -1,12 +1,3 @@
-/* Ensure category cover has visible height */
-.cat-card .cat-cover{
-  height: 92px;
-  border-radius: 16px;
-  width: 100%;
-  margin: 0 auto 14px;
-  background-color: rgba(0, 124, 95, 0.08);
-}
-
 /* ===== site additions (safe) ===== */
 
 /* Generic section styling for pages using .section */
@@ -67,3 +58,26 @@
 
 /* Fallback */
 .cat-card .cat-cover.cat-other{    background-image: url("/cat-icons/other.svg"); }
+
+/* === Category cover collage === */
+.cat-card .cat-cover{
+  height: 140px;
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 18px 18px 0 18px;
+  background: linear-gradient(135deg, rgba(0,124,95,.35), rgba(12,40,58,.35));
+}
+.cat-collage{
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 10px;
+}
+.cat-collage-slot{
+  border-radius: 14px;
+  background-color: rgba(255,255,255,.12);
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.14);
+}

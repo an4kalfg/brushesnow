@@ -92,10 +92,28 @@
     }
   };
 
+
+const coverCollage = (tag)=>{
+  // pick up to 3 images from brushes in this category
+  const imgs = [];
+  for (const [id,b] of Object.entries(brushes)){
+    const tags = inferTags(b);
+    if (!tags.includes(tag)) continue;
+    if (b.img) imgs.push(b.img);
+    if (imgs.length >= 3) break;
+  }
+  // fallback: empty collage (keeps layout)
+  const safe = (u)=>String(u).replace(/"/g,'&quot;');
+  const slots = [0,1,2].map(i=>{
+    const url = imgs[i] || "";
+    return `<div class="cat-collage-slot" style="${url?`background-image:url(\"${safe(url)}\")`:''}"></div>`;
+  }).join("");
+  return `<div class="cat-collage" aria-hidden="true">${slots}</div>`;
+};
   const grid = document.getElementById("grid");
   grid.innerHTML = order.map(([tag,n])=>`
     <div class="card cat-card">
-      <div class="cat-cover ${coverClass(tag)}"></div>
+      <div class="cat-cover ${coverClass(tag)}">${coverCollage(tag)}</div>
       <h3>${nice(tag)}</h3>
       <p class="muted">Explore this category.</p>
       <a href="/category.html?cat=${encodeURIComponent(tag)}" class="btn btn-primary">Open</a>

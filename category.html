@@ -18,8 +18,8 @@
 <header>
   <nav>
     <a href="/">Home</a>
-    <a href="categories.html">Categories</a>
-<a href="privacy.html">Privacy</a>
+    <a href="/categories/">Categories</a>
+<a href="/privacy/">Privacy</a>
   </nav>
 </header>
 
@@ -85,7 +85,7 @@
     grid.innerHTML = `<div style="padding:20px; text-align:center; width:100%;">
       <h2>No items yet</h2>
       <p>Add more brushes, or try another category.</p>
-      <p><a href="categories.html">View all categories</a></p>
+      <p><a href="/categories/">View all categories</a></p>
     </div>`;
   } else {
     grid.innerHTML = filtered.map(([id,b])=>`

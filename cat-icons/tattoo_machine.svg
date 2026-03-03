@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="gMetal" x1="0" x2="1">
+      <stop offset="0" stop-color="#e9eef2"/>
+      <stop offset="1" stop-color="#aab6bf"/>
+    </linearGradient>
+    <linearGradient id="gBody" x1="0" x2="1">
+      <stop offset="0" stop-color="#1b2a34"/>
+      <stop offset="1" stop-color="#0e141a"/>
+    </linearGradient>
+    <linearGradient id="gCopper" x1="0" x2="1">
+      <stop offset="0" stop-color="#d07a43"/>
+      <stop offset="1" stop-color="#8f4e2a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M118 176h150c18 0 32 14 32 32v28h56c20 0 36 16 36 36v8c0 20-16 36-36 36h-56v44c0 18-14 32-32 32H118c-18 0-32-14-32-32V208c0-18 14-32 32-32z" fill="url(#gBody)"/>
+    <rect x="102" y="206" width="54" height="210" rx="22" fill="url(#gCopper)"/>
+    <rect x="112" y="226" width="34" height="16" rx="8" fill="#f2c7a3" opacity="0.35"/>
+    <rect x="112" y="258" width="34" height="16" rx="8" fill="#f2c7a3" opacity="0.25"/>
+    <rect x="112" y="290" width="34" height="16" rx="8" fill="#f2c7a3" opacity="0.18"/>
+    <rect x="284" y="192" width="120" height="86" rx="18" fill="url(#gMetal)"/>
+    <rect x="300" y="206" width="88" height="18" rx="9" fill="#6b7a86" opacity="0.35"/>
+    <circle cx="344" cy="236" r="16" fill="#475864" opacity="0.45"/>
+    <rect x="306" y="310" width="120" height="24" rx="12" fill="url(#gMetal)"/>
+    <rect x="412" y="304" width="22" height="38" rx="11" fill="#2b3943" opacity="0.9"/>
+    <rect x="438" y="312" width="10" height="22" rx="5" fill="#0b0f14" opacity="0.9"/>
+    <circle cx="156" cy="206" r="7" fill="#9aa7b1" opacity="0.7"/>
+    <circle cx="156" cy="398" r="7" fill="#9aa7b1" opacity="0.7"/>
+    <circle cx="268" cy="236" r="6" fill="#9aa7b1" opacity="0.55"/>
+    <circle cx="268" cy="356" r="6" fill="#9aa7b1" opacity="0.55"/>
+  </g>
+</svg>

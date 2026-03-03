@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0f766e"/>
+    <stop offset="1" stop-color="#0b1f2a"/>
+  </linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity="0.25"/>
+  </filter>
+</defs>
+<g filter="url(#shadow)">
+  <rect x="72" y="72" width="368" height="368" rx="36" fill="url(#bg)"/>
+  <!-- stamp handle -->
+  <path d="M256 128c44 0 72 28 72 64 0 18-8 34-20 44H204c-12-10-20-26-20-44 0-36 28-64 72-64z" fill="#c07a44"/>
+  <rect x="190" y="232" width="132" height="28" rx="14" fill="#8b4e2a"/>
+  <!-- stamp base -->
+  <rect x="152" y="260" width="208" height="60" rx="22" fill="#f2f4f7" opacity="0.95"/>
+  <rect x="168" y="276" width="176" height="28" rx="14" fill="#1b2a34" opacity="0.15"/>
+  <!-- sparkles -->
+  <g fill="#fff" opacity="0.55">
+    <path d="M120 190l10 22 22 10-22 10-10 22-10-22-22-10 22-10z"/>
+    <path d="M392 170l8 18 18 8-18 8-8 18-8-18-18-8 18-8z"/>
+  </g>
+</g>
+</svg>

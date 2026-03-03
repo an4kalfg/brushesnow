@@ -4,13 +4,16 @@
     <loc>https://brushesnow.com/</loc>
   </url>
   <url>
-    <loc>https://brushesnow.com/index.html</loc>
+    <loc>https://brushesnow.com/categories/</loc>
   </url>
   <url>
-    <loc>https://brushesnow.com/categories.html</loc>
+    <loc>https://brushesnow.com/privacy/</loc>
   </url>
   <url>
-    <loc>https://brushesnow.com/privacy.html</loc>
+  </url>
+  <url>
+  </url>
+  <url>
   </url>
   <url>
     <loc>https://brushesnow.com/category.html?cat=anime</loc>

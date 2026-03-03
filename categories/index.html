@@ -106,7 +106,7 @@ const coverCollage = (tag)=>{
   const safe = (u)=>String(u).replace(/"/g,'&quot;');
   const slots = [0,1,2].map(i=>{
     const url = imgs[i] || "";
-    return `<div class="cat-collage-slot" style="${url?`background-image:url(\"${safe(url)}\")`:''}"></div>`;
+    return `<div class="cat-collage-slot" style="${url?`background-image:url("${safe(url)}")`:''}"></div>`;
   }).join("");
   return `<div class="cat-collage" aria-hidden="true">${slots}</div>`;
 };

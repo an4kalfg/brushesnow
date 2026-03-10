@@ -74,3 +74,11 @@
   background: #00775f;
   color: #fff;
 }
+/* Hero disclaimer text */
+.hero-disclaimer{
+  margin: 12px auto 0;
+  max-width: 900px;
+  font-size: 14px;
+  line-height: 1.45;
+  opacity: 0.85;
+}

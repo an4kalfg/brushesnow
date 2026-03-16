@@ -80,6 +80,27 @@
     let gallery = [];
     let current = 0;
 
+
+    function normalizeCfUrl(url){
+      if (!url) return url;
+      return url.replace(/-\d+x\d+(?=\.(jpg|jpeg|png|webp)$)/i, '');
+    }
+
+    function preloadImage(url){
+      return new Promise(resolve => {
+        const img = new Image();
+        img.onload = () => resolve(url);
+        img.onerror = () => resolve(null);
+        img.src = normalizeCfUrl(url);
+      });
+    }
+
+    async function prepareGallery(urls){
+      const clean = [...new Set((urls || []).map(normalizeCfUrl).filter(Boolean))];
+      const loaded = await Promise.all(clean.map(preloadImage));
+      return loaded.filter(Boolean);
+    }
+
     function renderGallery(){
       if (!gallery.length) return;
       imgEl.src = gallery[current];
@@ -97,8 +118,12 @@
       const data = brushes[id];
       const title = data.title || 'Brush Details';
       document.getElementById("brush-title").textContent = title;
-      gallery = Array.isArray(data.images) && data.images.length ? data.images : [data.img].filter(Boolean);
-      renderGallery();
+      const rawGallery = Array.isArray(data.images) && data.images.length ? data.images : [data.img].filter(Boolean);
+      prepareGallery(rawGallery).then(valid => {
+        gallery = valid.length ? valid : rawGallery.map(normalizeCfUrl).filter(Boolean);
+        current = 0;
+        renderGallery();
+          });
       document.getElementById("brush-desc").textContent = data.desc || '';
       document.getElementById("brush-link").href = data.link || '#';
       document.getElementById('tagline').textContent = Array.isArray(data.tags) ? `Tags: ${data.tags.join(', ')}` : '';
@@ -109,11 +134,9 @@
       document.getElementById('og-title').setAttribute('content', title);
       document.getElementById('og-desc').setAttribute('content', clean.slice(0,160));
       document.getElementById('og-url').setAttribute('content', `https://brushesnow.com/brush.html?id=${encodeURIComponent(id)}`);
-      document.getElementById('og-image').setAttribute('content', gallery[0] || 'https://brushesnow.com/apple-touch-icon.png');
       document.getElementById('tw-title').setAttribute('content', title);
       document.getElementById('tw-desc').setAttribute('content', clean.slice(0,160));
-      document.getElementById('tw-image').setAttribute('content', gallery[0] || 'https://brushesnow.com/apple-touch-icon.png');
-      const ld = {"@context":"https://schema.org","@type":"Product","name":title,"description":clean,"image":gallery,"url":`https://brushesnow.com/brush.html?id=${encodeURIComponent(id)}`};
+      const ld = {"@context":"https://schema.org","@type":"Product","name":title,"description":clean,"image":(Array.isArray(data.images) && data.images.length ? data.images : [data.img]).map(normalizeCfUrl).filter(Boolean),"url":`https://brushesnow.com/brush.html?id=${encodeURIComponent(id)}`};
       const s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(ld); document.head.appendChild(s);
     } else {
       document.body.innerHTML = '<h1>Brush not found</h1><p>Please check the link or return to the homepage.</p>';

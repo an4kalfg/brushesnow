@@ -60,7 +60,7 @@
   <div class="gallery-wrap">
     <div class="gallery-main">
       <button class="gal-btn gal-prev" id="prevBtn" aria-label="Previous image">‹</button>
-      <img id="brush-img" src="" alt="Brush Preview" />
+      <img id="brush-img" src="" alt="Brush Preview" loading="eager" fetchpriority="high" decoding="async" />
       <button class="gal-btn gal-next" id="nextBtn" aria-label="Next image">›</button>
     </div>
     <div class="thumbs" id="thumbs"></div>
@@ -101,11 +101,35 @@
       return loaded.filter(Boolean);
     }
 
+    function makeThumb(url){
+      if (!url) return url;
+      if (/-(\d+)x(\d+)(?=\.(jpg|jpeg|png|webp)$)/i.test(url)) return url;
+      return url.replace(/(\.(jpg|jpeg|png|webp)$)/i, '-312x208$1');
+    }
+
+    function loadProgressiveImage(url, indexToKeep){
+      const full = url;
+      const thumb = makeThumb(url);
+      imgEl.alt = document.getElementById('brush-title').textContent;
+      imgEl.src = thumb;
+
+      imgEl.onerror = () => {
+        if (current === indexToKeep) imgEl.src = full;
+      };
+
+      const preloader = new Image();
+      preloader.decoding = 'async';
+      preloader.fetchPriority = 'high';
+      preloader.onload = () => {
+        if (current === indexToKeep) imgEl.src = full;
+      };
+      preloader.src = full;
+    }
+
     function renderGallery(){
       if (!gallery.length) return;
-      imgEl.src = gallery[current];
-      imgEl.alt = document.getElementById('brush-title').textContent;
-      thumbsEl.innerHTML = gallery.map((u,i)=>`<img src="${u}" data-i="${i}" class="${i===current?'active':''}" alt="Preview ${i+1}">`).join('');
+      loadProgressiveImage(gallery[current], current);
+      thumbsEl.innerHTML = gallery.map((u,i)=>`<img src="${makeThumb(u)}" data-i="${i}" class="${i===current?'active':''}" loading="lazy" decoding="async" alt="Preview ${i+1}">`).join('');
       thumbsEl.querySelectorAll('img').forEach(el=>el.addEventListener('click',()=>{current=Number(el.dataset.i); renderGallery();}));
       const multi = gallery.length > 1;
       prevBtn.style.display = multi ? 'block' : 'none';

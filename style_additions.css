@@ -88,14 +88,14 @@
 .category-card a, .card a{display:block;text-align:center;}
 .category-card button{border:0;padding:10px 18px;border-radius:10px;cursor:pointer;font-weight:700;background:#00775f;color:#fff;}
 
-/* ===== Hero fantasy show full image ===== */
+/* ===== Hero fantasy final wide banner ===== */
 .hero{
-  padding: 22px 20px 24px !important;
-  min-height: 520px;
+  padding: 26px 20px 22px !important;
+  min-height: 0 !important;
   background:
-    linear-gradient(rgba(8,12,18,0.10), rgba(8,12,18,0.10)),
-    url("assets/hero-fantasy-full.png") center center / contain no-repeat !important;
-  background-color: #17121a !important;
+    linear-gradient(rgba(10,12,18,0.14), rgba(10,12,18,0.14)),
+    url("assets/hero-fantasy-full.png") center center / cover no-repeat !important;
+  background-color: #1a1219 !important;
 }
 
 .hero h1,

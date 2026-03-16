@@ -88,12 +88,11 @@
 .category-card a, .card a{display:block;text-align:center;}
 .category-card button{border:0;padding:10px 18px;border-radius:10px;cursor:pointer;font-weight:700;background:#00775f;color:#fff;}
 
-
-/* ===== Hero fantasy banner approved version ===== */
+/* ===== Hero fantasy clean-art override ===== */
 .hero{
   padding: 26px 20px 20px !important;
   background:
-    linear-gradient(rgba(8,12,18,0.22), rgba(8,12,18,0.22)),
+    linear-gradient(rgba(8,12,18,0.18), rgba(8,12,18,0.18)),
     url("assets/hero-fantasy-full.png") center center / cover no-repeat !important;
 }
 

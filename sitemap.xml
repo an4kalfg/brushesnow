@@ -10,28 +10,28 @@
     <loc>https://brushesnow.com/privacy/</loc>
   </url>
   <url>
+    <loc>https://brushesnow.com/tags/</loc>
   </url>
   <url>
-  </url>
-  <url>
-  </url>
-  <url>
-    <loc>https://brushesnow.com/category.html?cat=anime</loc>
-  </url>
-  <url>
-    <loc>https://brushesnow.com/category.html?cat=blackwhite</loc>
-  </url>
-  <url>
-    <loc>https://brushesnow.com/category.html?cat=manga</loc>
-  </url>
-  <url>
-    <loc>https://brushesnow.com/category.html?cat=texture</loc>
+    <loc>https://brushesnow.com/category.html?cat=watercolor</loc>
   </url>
   <url>
     <loc>https://brushesnow.com/category.html?cat=stamps</loc>
   </url>
   <url>
+    <loc>https://brushesnow.com/category.html?cat=texture</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/category.html?cat=anime</loc>
+  </url>
+  <url>
     <loc>https://brushesnow.com/category.html?cat=shading</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/category.html?cat=manga</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/category.html?cat=blackwhite</loc>
   </url>
   <url>
     <loc>https://brushesnow.com/category.html?cat=inking</loc>
@@ -40,28 +40,151 @@
     <loc>https://brushesnow.com/category.html?cat=tattoo</loc>
   </url>
   <url>
-    <loc>https://brushesnow.com/category.html?cat=watercolor</loc>
-  </url>
-  <url>
-    <loc>https://brushesnow.com/category.html?cat=pastels</loc>
-  </url>
-  <url>
-    <loc>https://brushesnow.com/category.html?cat=markers</loc>
-  </url>
-  <url>
-    <loc>https://brushesnow.com/category.html?cat=pencil</loc>
-  </url>
-  <url>
     <loc>https://brushesnow.com/category.html?cat=patterns</loc>
   </url>
   <url>
-    <loc>https://brushesnow.com/category.html?cat=holiday</loc>
+    <loc>https://brushesnow.com/category.html?cat=glitter</loc>
   </url>
   <url>
-    <loc>https://brushesnow.com/category.html?cat=fantasy</loc>
+    <loc>https://brushesnow.com/category.html?cat=bubbles</loc>
   </url>
   <url>
-    <loc>https://brushesnow.com/category.html?cat=effects</loc>
+    <loc>https://brushesnow.com/category.html?cat=blending</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/category.html?cat=character-design</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/category.html?cat=acrylic</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/category.html?cat=oil-paint</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/category.html?cat=sketchbook</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/category.html?cat=floral</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/watercolor/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/splatter/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/glitter/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/bubbles/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/tattoo/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/blending/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/character-design/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/acrylic/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/texture/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/ink/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/floral/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/anime/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/kawaii/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/oil-paint/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/sketchbook/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/patterns/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/knit/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/manga/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/shading/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/stamps/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/blackwhite/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/tags/inking/</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=realistic-prima-watercolor-brushes</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=watercolor-splatter-brushes</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=realistic-watercolor-wet-wash-brushes</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=sparkle-glitter-brushes-for-procreate</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=bubbles-procreate-brushes</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=koi-fish-tattoo-procreate-brushes</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=procreate-blending-brushes-2</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=character-design-procreate-brushes</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=acrylic-procreate-brushes-painting-kit</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=texture-1-brushes-for-procreate</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=realistic-ink-brushes-for-procreate</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=100-flower-patterns-procreate-brushes</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=260-kawaii-anime-hair-stamps-procreate</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=realistic-watercolor-procreate-brushes-3</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=knit-pattern-brushes-for-procreate</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=pattern-brushes-for-procreate-2</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=realistic-oil-paint-brushes</loc>
+  </url>
+  <url>
+    <loc>https://brushesnow.com/brush.html?id=sketchbook-procreate-brushes-2</loc>
   </url>
   <url>
     <loc>https://brushesnow.com/brush.html?id=100-calendar-stamps-for-procreate-2</loc>

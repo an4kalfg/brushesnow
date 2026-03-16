@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tattoo Procreate Brushes | Treasure of Art Tools</title>
+  <meta name="description" content="Browse tattoo procreate brushes with curated previews, creator links, and related Procreate packs.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://brushesnow.com/tags/tattoo/">
+  <meta property="og:title" content="Tattoo Procreate Brushes | Treasure of Art Tools">
+  <meta property="og:description" content="Browse tattoo procreate brushes with curated previews and creator links.">
+  <meta property="og:type" content="website"><meta property="og:url" content="https://brushesnow.com/tags/tattoo/"><meta property="og:image" content="https://brushesnow.com/apple-touch-icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/style_additions.css">
+  <link rel="icon" href="/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head><body>
+<header><h1>Treasure of Art Tools</h1><nav><a href="/">Home</a><a href="/categories/">Categories</a><a href="/privacy/">Privacy</a></nav></header>
+<section class="hero"><h1>Tattoo Procreate Brushes</h1><p>Hand-picked tattoo procreate brushes with official creator links and preview galleries.</p></section>
+<section class="brushes"><div class="card-container" id="grid"></div></section>
+<script src="/brushes.js"></script>
+<script>
+  const TAG = "tattoo";
+  const brushes = window.brushes || {};
+  function inferTags(b){ const tags = new Set(); (Array.isArray(b.tags)?b.tags:[]).forEach(t=>tags.add(String(t).toLowerCase())); (Array.isArray(b.category)?b.category:[]).forEach(t=>tags.add(String(t).toLowerCase())); const text=((b.title||'')+' '+(b.desc||'')).toLowerCase(); const kws="tattoo".split(/\s+/); kws.forEach(k=>{ if(text.includes(k)) tags.add(TAG); }); return Array.from(tags); }
+  const filtered=Object.entries(brushes).filter(([id,b])=>inferTags(b).includes(TAG));
+  document.getElementById('grid').innerHTML = filtered.map(([id,b])=>`<div class="card"><img src="${b.img}" alt="${b.title||''}"><h3>${b.title||''}</h3><p>${b.desc||''}</p><a href="/brush.html?id=${encodeURIComponent(id)}" class="btn btn-primary">Download</a></div>`).join('');
+</script></body></html>

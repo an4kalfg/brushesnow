@@ -3,100 +3,84 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  
-<link rel="icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<title>Category | BrushesNow</title>
-  <meta name="description" content="Browse Procreate brushes by category: anime, black and white, manga, shading, textures, and more."/>
+  <title>Category | Treasure of Art Tools</title>
+  <meta name="description" content="Browse Procreate brushes by category: watercolor, texture, anime, manga, tattoo, patterns, sketchbook, ink, and more."/>
   <meta name="robots" content="index,follow"/>
+  <link rel="canonical" id="canonical-link" href="https://brushesnow.com/category.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" id="og-title" content="Category | Treasure of Art Tools" />
+  <meta property="og:description" id="og-desc" content="Browse Procreate brushes by category." />
+  <meta property="og:url" id="og-url" content="https://brushesnow.com/category.html" />
+  <meta property="og:image" content="https://brushesnow.com/apple-touch-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="style_additions.css"/>
 </head>
 <body>
-
 <header>
   <nav>
     <a href="/">Home</a>
     <a href="/categories/">Categories</a>
-<a href="/privacy/">Privacy</a>
+    <a href="/privacy/">Privacy</a>
   </nav>
 </header>
-
 <div class="hero">
   <h1 id="h1">Procreate Brushes</h1>
   <p id="sub">Browse curated brush packs and stamps. Click Download to open the full details.</p>
 </div>
-
 <section class="brushes">
   <div class="card-container" id="grid"></div>
 </section>
-
 <script src="brushes.js"></script>
 <script>
   const brushes = window.brushes || {};
   const params = new URLSearchParams(location.search);
   const cat = (params.get("cat") || "").toLowerCase().trim();
-
+  const tagDefs = {
+    'stamps':['stamp','stamps','pose','poses','bases','creator','toolbox','calendar','tarot','cards'],
+    'texture':['texture','grain','paper','wallpaper','lace','fabric','clothes','seamless','canvas'],
+    'anime':['anime','chibi','manga','kawaii','hair','character-design','couple'],
+    'shading':['shading','shade','marker','watercolor','aquarelle','pastel','oil-paint','smoke','blending','acrylic'],
+    'manga':['manga','screentone','halftone','comic','comics','woodblock'],
+    'blackwhite':['blackwhite','black-white','black and white','monochrome','grayscale','ink','crosshatch','hatching','lineart'],
+    'inking':['inking','ink','lineart','pencil','pen'],
+    'tattoo':['tattoo','stencil','koi'],
+    'watercolor':['watercolor','wet-wash','splatter'],
+    'patterns':['patterns','pattern','knit','floral','flowers','surface-design'],
+    'glitter':['glitter','sparkle','effects'],
+    'bubbles':['bubbles'],
+    'blending':['blending'],
+    'character-design':['character-design','portraits'],
+    'acrylic':['acrylic'],
+    'oil-paint':['oil-paint'],
+    'sketchbook':['sketchbook','sketch','drawing'],
+    'floral':['floral','flowers','botanical']
+  };
   function inferTags(b){
-    const t = ((b.title||"") + " " + (b.desc||"")).toLowerCase();
     const tags = new Set();
-
-    // Core intent buckets
-    if (/(anime|manga|screentone|pose|chibi)/.test(t)) tags.add("anime");
-    if (/(manga|screentone|halftone|comic)/.test(t)) tags.add("manga");
-    if (/(tattoo|spitshading)/.test(t)) tags.add("tattoo");
-    if (/(texture|fabric|clothes)/.test(t)) tags.add("texture");
-    if (/(pose|stamps|stamp)/.test(t)) tags.add("stamps");
-    if (/(crosshatch|hatching|ink|inking|lineart)/.test(t)) tags.add("inking");
-    if (/(shade|shading|gradient)/.test(t)) tags.add("shading");
-
-    // Black & white bucket (broad, useful for SEO)
-    if (/(black\s*&\s*white|black\s*and\s*white|b\s*&\s*w|monochrome|grayscale|greyscale|ink|crosshatch|hatching|screentone|halftone|lineart)/.test(t)) {
-      tags.add("blackwhite");
-    }
-
-    // Optional explicit categories in data
-    if (Array.isArray(b.category)) b.category.forEach(x => tags.add(String(x).toLowerCase()));
-    else if (typeof b.category === "string" && b.category.trim()) tags.add(b.category.toLowerCase());
-
-    // Always allow "all"
-    tags.add("all");
+    (Array.isArray(b.tags)?b.tags:[]).forEach(t=>tags.add(String(t).toLowerCase()));
+    (Array.isArray(b.category)?b.category:[]).forEach(t=>tags.add(String(t).toLowerCase()));
+    const text = ((b.title||'')+' '+(b.desc||'')).toLowerCase();
+    Object.entries(tagDefs).forEach(([slug,kws])=>{ if (kws.some(k=>text.includes(k))) tags.add(slug); });
+    tags.add('all');
     return Array.from(tags);
   }
+  const titleMap = Object.fromEntries(Object.keys(tagDefs).map(k=>[k, k.replace(/[-_]+/g,' ').replace(/\w/g,c=>c.toUpperCase())]));
+  const titleBase = cat ? `${titleMap[cat] || cat} Procreate Brushes` : 'Procreate Brushes';
+  document.getElementById('h1').textContent = titleBase;
+  document.title = `${titleBase} | Treasure of Art Tools`;
+  document.getElementById('sub').textContent = cat ? `Browse ${titleMap[cat] || cat} Procreate brushes, textures, stamps, and related packs.` : 'Browse curated brush packs and stamps.';
+  document.getElementById('canonical-link').href = `https://brushesnow.com/category.html?cat=${encodeURIComponent(cat)}`;
+  document.getElementById('og-title').setAttribute('content', titleBase);
+  document.getElementById('og-desc').setAttribute('content', document.getElementById('sub').textContent);
+  document.getElementById('og-url').setAttribute('content', `https://brushesnow.com/category.html?cat=${encodeURIComponent(cat)}`);
 
-  // Page text
-  const nice = (s)=> (s||"").replace(/[-_]+/g," ").replace(/\b\w/g, c => c.toUpperCase());
-  const titleBase = cat ? `${nice(cat)} Procreate Brushes` : "Procreate Brushes";
-  document.getElementById("h1").textContent = titleBase;
-  document.title = `${titleBase} | BrushesNow`;
-
-  // Build grid
-  const grid = document.getElementById("grid");
-  const entries = Object.entries(brushes);
-
-  const filtered = entries.filter(([id,b])=>{
-    const tags = inferTags(b);
-    if (!cat) return true;
-    return tags.includes(cat);
-  });
-
-  if (filtered.length === 0) {
-    grid.innerHTML = `<div style="padding:20px; text-align:center; width:100%;">
-      <h2>No items yet</h2>
-      <p>Add more brushes, or try another category.</p>
-      <p><a href="/categories/">View all categories</a></p>
-    </div>`;
-  } else {
-    grid.innerHTML = filtered.map(([id,b])=>`
-      <div class="card">
-        <img src="${b.img}" alt="${(b.title||"").replace(/"/g,"&quot;")}">
-        <h3>${b.title||""}</h3>
-        <p>${b.desc||""}</p>
-        <a href="brush.html?id=${encodeURIComponent(id)}" class="btn btn-primary">Download</a>
-      </div>
-    `).join("");
-  }
+  const filtered = Object.entries(brushes).filter(([id,b]) => !cat || inferTags(b).includes(cat));
+  const grid = document.getElementById('grid');
+  grid.innerHTML = filtered.length ? filtered.map(([id,b])=>`<div class="card"><img src="${b.img}" alt="${(b.title||'').replace(/"/g,'&quot;')}"><h3>${b.title||''}</h3><p>${b.desc||''}</p><a href="brush.html?id=${encodeURIComponent(id)}" class="btn btn-primary">Download</a></div>`).join('') : '<div style="padding:20px;text-align:center;width:100%;"><h2>No items yet</h2><p>Try another category.</p></div>';
 </script>
 </body>
 </html>

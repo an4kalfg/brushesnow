@@ -1,71 +1,122 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5VSFCDQCRW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-5VSFCDQCRW');
 </script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-<link rel="icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<title>Brush Details</title>
+  <title>Brush Details</title>
+  <meta name="description" content="Browse Procreate brush details, preview gallery, and official creator links." />
   <meta name="robots" content="index, follow">
   <meta name="pinterest-rich-pin" content="true">
+  <link rel="canonical" id="canonical-link" href="https://brushesnow.com/brush.html" />
+  <meta property="og:type" content="product" />
+  <meta property="og:title" id="og-title" content="Brush Details" />
+  <meta property="og:description" id="og-desc" content="Browse Procreate brush details, preview gallery, and official creator links." />
+  <meta property="og:url" id="og-url" content="https://brushesnow.com/brush.html" />
+  <meta property="og:image" id="og-image" content="https://brushesnow.com/apple-touch-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" id="tw-title" content="Brush Details" />
+  <meta name="twitter:description" id="tw-desc" content="Browse Procreate brush details, preview gallery, and official creator links." />
+  <meta name="twitter:image" id="tw-image" content="https://brushesnow.com/apple-touch-icon.png" />
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <style>
-    body { font-family: Arial, sans-serif; padding: 40px; max-width: 800px; margin: auto; background: #fdfdfd; }
-    h1 { color: #00775f; }
-    img { max-width: 100%; height: auto; border-radius: 8px; margin-top: 20px; }
-    p { line-height: 1.6; }
+    body { font-family: Arial, sans-serif; padding: 32px 20px 60px; max-width: 980px; margin: auto; background: #fdfdfd; color:#111827; }
+    .topnav{margin-bottom:20px;text-align:center;}
+    .topnav a{margin:0 10px; color:#0f766e; text-decoration:none; font-weight:600;}
+    h1 { color: #00775f; margin-bottom: 10px; }
+    p { line-height: 1.65; }
     .btn {
       display: inline-block;
       background: #00775f;
       color: white;
-      padding: 10px 20px;
+      padding: 11px 22px;
       margin-top: 20px;
       text-decoration: none;
-      border-radius: 4px;
+      border-radius: 10px;
+      font-weight:700;
     }
+    .gallery-wrap{margin: 24px 0 14px;}
+    .gallery-main{position:relative; background:#fff; border-radius:14px; box-shadow:0 0 10px rgba(0,0,0,.08); padding:18px;}
+    .gallery-main img{display:block; width:100%; max-height:520px; object-fit:contain; border-radius:10px; margin:0 auto;}
+    .gal-btn{position:absolute; top:50%; transform:translateY(-50%); width:42px; height:42px; border:none; border-radius:999px; background:rgba(17,24,39,.75); color:#fff; font-size:24px; cursor:pointer;}
+    .gal-prev{left:16px;} .gal-next{right:16px;}
+    .thumbs{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:12px;}
+    .thumbs img{width:90px; height:64px; object-fit:cover; border-radius:8px; border:2px solid transparent; cursor:pointer;}
+    .thumbs img.active{border-color:#0f766e;}
+    .meta-note{font-size:14px; color:#4b5563; margin-top:10px;}
   </style>
 </head>
 <body>
+  <div class="topnav"><a href="/">Home</a><a href="/categories/">Categories</a><a href="/privacy/">Privacy</a></div>
   <h1 id="brush-title">Loading...</h1>
-  <img id="brush-img" src="" alt="Brush Preview" />
+  <div class="gallery-wrap">
+    <div class="gallery-main">
+      <button class="gal-btn gal-prev" id="prevBtn" aria-label="Previous image">‹</button>
+      <img id="brush-img" src="" alt="Brush Preview" />
+      <button class="gal-btn gal-next" id="nextBtn" aria-label="Next image">›</button>
+    </div>
+    <div class="thumbs" id="thumbs"></div>
+  </div>
   <p id="brush-desc"></p>
-  <a id="brush-link" class="btn" href="#" target="_blank">Download</a>
-
+  <div class="meta-note" id="tagline"></div>
+  <a id="brush-link" class="btn" href="#" target="_blank" rel="noopener">Download</a>
   <script src="brushes.js"></script>
-<script>
-    const brushes = window.brushes;
-const params = new URLSearchParams(window.location.search);
+  <script>
+    const brushes = window.brushes || {};
+    const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
+    const imgEl = document.getElementById('brush-img');
+    const thumbsEl = document.getElementById('thumbs');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let gallery = [];
+    let current = 0;
+
+    function renderGallery(){
+      if (!gallery.length) return;
+      imgEl.src = gallery[current];
+      imgEl.alt = document.getElementById('brush-title').textContent;
+      thumbsEl.innerHTML = gallery.map((u,i)=>`<img src="${u}" data-i="${i}" class="${i===current?'active':''}" alt="Preview ${i+1}">`).join('');
+      thumbsEl.querySelectorAll('img').forEach(el=>el.addEventListener('click',()=>{current=Number(el.dataset.i); renderGallery();}));
+      const multi = gallery.length > 1;
+      prevBtn.style.display = multi ? 'block' : 'none';
+      nextBtn.style.display = multi ? 'block' : 'none';
+    }
+    prevBtn.addEventListener('click',()=>{current=(current-1+gallery.length)%gallery.length; renderGallery();});
+    nextBtn.addEventListener('click',()=>{current=(current+1)%gallery.length; renderGallery();});
 
     if (id && brushes[id]) {
       const data = brushes[id];
-      document.getElementById("brush-title").textContent = data.title;
-      document.getElementById("brush-img").src = data.img;
-      document.getElementById("brush-img").alt = data.title;
-      document.getElementById("brush-desc").textContent = data.desc;
-      document.getElementById("brush-link").href = data.link;
-      // Dynamic SEO
-      document.title = `${data.title} | BrushesNow`;
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        const clean = (data.desc || "").replace(/\s+/g, " ").trim();
-        metaDesc.setAttribute("content", clean.slice(0, 155));
-      }
-
+      const title = data.title || 'Brush Details';
+      document.getElementById("brush-title").textContent = title;
+      gallery = Array.isArray(data.images) && data.images.length ? data.images : [data.img].filter(Boolean);
+      renderGallery();
+      document.getElementById("brush-desc").textContent = data.desc || '';
+      document.getElementById("brush-link").href = data.link || '#';
+      document.getElementById('tagline').textContent = Array.isArray(data.tags) ? `Tags: ${data.tags.join(', ')}` : '';
+      const clean = (data.desc || '').replace(/\s+/g,' ').trim();
+      document.title = `${title} | Treasure of Art Tools`;
+      document.querySelector('meta[name="description"]').setAttribute('content', clean.slice(0, 160));
+      document.getElementById('canonical-link').href = `https://brushesnow.com/brush.html?id=${encodeURIComponent(id)}`;
+      document.getElementById('og-title').setAttribute('content', title);
+      document.getElementById('og-desc').setAttribute('content', clean.slice(0,160));
+      document.getElementById('og-url').setAttribute('content', `https://brushesnow.com/brush.html?id=${encodeURIComponent(id)}`);
+      document.getElementById('og-image').setAttribute('content', gallery[0] || 'https://brushesnow.com/apple-touch-icon.png');
+      document.getElementById('tw-title').setAttribute('content', title);
+      document.getElementById('tw-desc').setAttribute('content', clean.slice(0,160));
+      document.getElementById('tw-image').setAttribute('content', gallery[0] || 'https://brushesnow.com/apple-touch-icon.png');
+      const ld = {"@context":"https://schema.org","@type":"Product","name":title,"description":clean,"image":gallery,"url":`https://brushesnow.com/brush.html?id=${encodeURIComponent(id)}`};
+      const s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(ld); document.head.appendChild(s);
     } else {
-      document.body.innerHTML = "<h1>Brush not found</h1><p>Please check the link or return to the homepage.</p>";
+      document.body.innerHTML = '<h1>Brush not found</h1><p>Please check the link or return to the homepage.</p>';
     }
   </script>
 </body>

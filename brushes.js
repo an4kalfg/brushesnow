@@ -1,4 +1,166 @@
 window.brushes = {
+  "realistic-prima-watercolor-brushes": {
+    title: "Realistic Prima Watercolor Brushes",
+    img: "https://cdn.creativefabrica.com/2026/03/05/Realistic-Prima-Watercolor-Brushes-Graphics-144042324-1-1-312x208.png",
+    images: ["https://cdn.creativefabrica.com/2026/03/05/Realistic-Prima-Watercolor-Brushes-Graphics-144042324-1-1-312x208.png", "https://cdn.creativefabrica.com/2026/03/05/Realistic-Prima-Watercolor-Brushes-Graphics-144042324-2-312x208.png", "https://cdn.creativefabrica.com/2026/03/05/Realistic-Prima-Watercolor-Brushes-Graphics-144042324-3-312x208.png"],
+    desc: "Premium realistic watercolor Procreate brushes with paper-like texture, natural washes, and painterly detail for expressive illustrations.",
+    link: "https://www.creativefabrica.com/product/realistic-prima-watercolor-brushes/ref/8485983/?campaign=_websitecanva",
+    tags: ["watercolor", "painting", "realistic", "texture", "paper", "shading"],
+    category: ["watercolor", "texture", "shading"]
+  },
+  "watercolor-splatter-brushes": {
+    title: "Watercolor Splatter Brushes",
+    img: "https://cdn.creativefabrica.com/2026/03/04/Watercolor-Splatter-Brushes-Graphics-143942476-1-1-312x208.png",
+    images: ["https://cdn.creativefabrica.com/2026/03/04/Watercolor-Splatter-Brushes-Graphics-143942476-1-1-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Watercolor-Splatter-Brushes-Graphics-143942476-2-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Watercolor-Splatter-Brushes-Graphics-143942476-3-312x208.png"],
+    desc: "Watercolor splatter brushes for Procreate with organic paint spray, ink splash texture, and expressive handmade effects for backgrounds and mixed media art.",
+    link: "https://www.creativefabrica.com/product/watercolor-splatter-brushes/ref/8485983/?campaign=_websitecanva",
+    tags: ["watercolor", "splatter", "texture", "backgrounds", "ink"],
+    category: ["watercolor", "texture", "inking"]
+  },
+  "realistic-watercolor-wet-wash-brushes": {
+    title: "Realistic Watercolor Wet Wash Brushes",
+    img: "https://cdn.creativefabrica.com/2026/03/04/Realistic-Watercolor-Wet-Wash-Brushes-Graphics-143938708-1-1-312x208.png",
+    images: ["https://cdn.creativefabrica.com/2026/03/04/Realistic-Watercolor-Wet-Wash-Brushes-Graphics-143938708-1-1-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Realistic-Watercolor-Wet-Wash-Brushes-Graphics-143938708-2-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Realistic-Watercolor-Wet-Wash-Brushes-Graphics-143938708-3-312x208.png"],
+    desc: "Wet-on-wet watercolor brushes for Procreate featuring soft blooms, flowing edges, and natural wash effects for dreamy traditional-style painting.",
+    link: "https://www.creativefabrica.com/product/realistic-watercolor-wet-wash-brushes/ref/8485983/?campaign=_websitecanva",
+    tags: ["watercolor", "wet-wash", "painting", "texture", "realistic"],
+    category: ["watercolor", "shading", "texture"]
+  },
+  "sparkle-glitter-brushes-for-procreate": {
+    title: "Sparkle Glitter Brushes for Procreate",
+    img: "https://cdn.creativefabrica.com/2026/03/04/Sparkle-Glitter-Brushes-for-Procreate-Graphics-143933291-1-1-312x208.png",
+    images: ["https://cdn.creativefabrica.com/2026/03/04/Sparkle-Glitter-Brushes-for-Procreate-Graphics-143933291-1-1-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Sparkle-Glitter-Brushes-for-Procreate-Graphics-143933291-2-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Sparkle-Glitter-Brushes-for-Procreate-Graphics-143933291-3-312x208.png"],
+    desc: "Glitter and sparkle Procreate brushes for luminous accents, twinkling highlights, magical dust, and decorative lettering effects.",
+    link: "https://www.creativefabrica.com/product/sparkle-glitter-brushes-for-procreate/ref/8485983/?campaign=_websitecanva",
+    tags: ["glitter", "sparkle", "effects", "shading", "lettering"],
+    category: ["shading", "effects"]
+  },
+  "bubbles-procreate-brushes": {
+    title: "Bubbles Procreate Brushes",
+    img: "https://cdn.creativefabrica.com/2022/10/10/Bubbles-Procreate-Brushes-Graphics-41007099-1-1-312x208.jpg",
+    images: ["https://cdn.creativefabrica.com/2022/10/10/Bubbles-Procreate-Brushes-Graphics-41007099-1-1-312x208.jpg", "https://cdn.creativefabrica.com/2022/10/10/Bubbles-Procreate-Brushes-Graphics-41007099-2-312x208.jpg", "https://cdn.creativefabrica.com/2022/10/10/Bubbles-Procreate-Brushes-Graphics-41007099-3-312x208.jpg"],
+    desc: "Bubble effect brushes for Procreate with glossy translucent shapes, playful highlights, and underwater or dreamy fantasy atmosphere.",
+    link: "https://www.creativefabrica.com/product/bubbles-procreate-brushes/ref/8485983/?campaign=_websitecanva",
+    tags: ["bubbles", "effects", "fantasy", "texture"],
+    category: ["effects", "texture"]
+  },
+  "koi-fish-tattoo-procreate-brushes": {
+    title: "Koi Fish Tattoo Procreate Brushes",
+    img: "https://cdn.creativefabrica.com/2026/02/06/Koi-Fish-Tattoo-Procreate-Brushes-Graphics-141878416-1-1-312x208.jpg",
+    images: ["https://cdn.creativefabrica.com/2026/02/06/Koi-Fish-Tattoo-Procreate-Brushes-Graphics-141878416-1-1-312x208.jpg", "https://cdn.creativefabrica.com/2026/02/06/Koi-Fish-Tattoo-Procreate-Brushes-Graphics-141878416-2-312x208.jpg", "https://cdn.creativefabrica.com/2026/02/06/Koi-Fish-Tattoo-Procreate-Brushes-Graphics-141878416-3-312x208.jpg"],
+    desc: "Koi fish tattoo Procreate brushes with Japanese-inspired designs, textures, shaders, and stamps for bold tattoo illustrations and flash art.",
+    link: "https://www.creativefabrica.com/product/koi-fish-tattoo-procreate-brushes/ref/8485983/?campaign=_websitecanva",
+    tags: ["tattoo", "koi", "japanese", "stamps", "texture", "shading"],
+    category: ["tattoo", "stamps", "texture", "shading"]
+  },
+  "procreate-blending-brushes-2": {
+    title: "Procreate Blending Brushes",
+    img: "https://cdn.creativefabrica.com/2024/01/30/Procreate-Blending-Brushes-Graphics-89755477-1-1-312x208.jpg",
+    images: ["https://cdn.creativefabrica.com/2024/01/30/Procreate-Blending-Brushes-Graphics-89755477-1-1-312x208.jpg", "https://cdn.creativefabrica.com/2024/01/30/Procreate-Blending-Brushes-Graphics-89755477-2-312x208.jpg", "https://cdn.creativefabrica.com/2024/01/30/Procreate-Blending-Brushes-Graphics-89755477-3-312x208.jpg"],
+    desc: "Smooth blending brushes for Procreate designed for soft gradients, painterly transitions, watercolor blending, and polished illustration rendering.",
+    link: "https://www.creativefabrica.com/product/procreate-blending-brushes-2/ref/8485983/?campaign=_websitecanva",
+    tags: ["blending", "shading", "watercolor", "painting"],
+    category: ["shading", "watercolor"]
+  },
+  "character-design-procreate-brushes": {
+    title: "Character Design Procreate Brushes",
+    img: "https://cdn.creativefabrica.com/2026/03/04/Character-Design-Procreate-Brushes-Graphics-143932843-1-1-312x208.png",
+    images: ["https://cdn.creativefabrica.com/2026/03/04/Character-Design-Procreate-Brushes-Graphics-143932843-1-1-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Character-Design-Procreate-Brushes-Graphics-143932843-2-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Character-Design-Procreate-Brushes-Graphics-143932843-3-312x208.png"],
+    desc: "Character design brushes for Procreate with elegant linework, sketching tools, and soft rendering brushes for portraits, OC art, and concept work.",
+    link: "https://www.creativefabrica.com/product/character-design-procreate-brushes/ref/8485983/?campaign=_websitecanva",
+    tags: ["character-design", "portraits", "sketch", "anime", "drawing"],
+    category: ["anime", "sketchbook"]
+  },
+  "acrylic-procreate-brushes-painting-kit": {
+    title: "Acrylic Procreate Brushes Painting Kit",
+    img: "https://cdn.creativefabrica.com/2026/03/04/Acrylic-Procreate-Brushes-Painting-Kit-Graphics-143930459-1-1-312x208.png",
+    images: ["https://cdn.creativefabrica.com/2026/03/04/Acrylic-Procreate-Brushes-Painting-Kit-Graphics-143930459-1-1-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Acrylic-Procreate-Brushes-Painting-Kit-Graphics-143930459-2-312x208.jpg", "https://cdn.creativefabrica.com/2026/03/04/Acrylic-Procreate-Brushes-Painting-Kit-Graphics-143930459-3-312x208.jpg"],
+    desc: "Acrylic painting kit for Procreate with rich textured strokes, canvas feel, and versatile painterly brushes for illustrative artwork.",
+    link: "https://www.creativefabrica.com/product/acrylic-procreate-brushes-painting-kit/ref/8485983/?campaign=_websitecanva",
+    tags: ["acrylic", "painting", "texture", "canvas"],
+    category: ["texture", "painting"]
+  },
+  "texture-1-brushes-for-procreate": {
+    title: "Texture Brushes for Procreate",
+    img: "https://cdn.creativefabrica.com/2026/03/04/Texture-1-Brushes-for-Procreate-Graphics-143932200-1-1-312x208.png",
+    images: ["https://cdn.creativefabrica.com/2026/03/04/Texture-1-Brushes-for-Procreate-Graphics-143932200-1-1-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Texture-1-Brushes-for-Procreate-Graphics-143932200-2-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Texture-1-Brushes-for-Procreate-Graphics-143932200-3-312x208.png"],
+    desc: "Soft texture brushes for Procreate with paper grain, subtle noise, and handmade surfaces to give illustrations more depth and warmth.",
+    link: "https://www.creativefabrica.com/product/texture-1-brushes-for-procreate/ref/8485983/?campaign=_websitecanva",
+    tags: ["texture", "grain", "paper", "backgrounds"],
+    category: ["texture"]
+  },
+  "realistic-ink-brushes-for-procreate": {
+    title: "Realistic Ink Brushes for Procreate",
+    img: "https://cdn.creativefabrica.com/2026/03/04/Realistic-Ink-Brushes-for-Procreate-Graphics-143937949-1-1-312x208.png",
+    images: ["https://cdn.creativefabrica.com/2026/03/04/Realistic-Ink-Brushes-for-Procreate-Graphics-143937949-1-1-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Realistic-Ink-Brushes-for-Procreate-Graphics-143937949-2-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Realistic-Ink-Brushes-for-Procreate-Graphics-143937949-3-312x208.png"],
+    desc: "Realistic ink brushes for Procreate with expressive black strokes, dry brush texture, lineart tools, and traditional pen-and-ink character.",
+    link: "https://www.creativefabrica.com/product/realistic-ink-brushes-for-procreate/ref/8485983/?campaign=_websitecanva",
+    tags: ["ink", "inking", "blackwhite", "lineart", "sketch"],
+    category: ["inking", "blackwhite"]
+  },
+  "100-flower-patterns-procreate-brushes": {
+    title: "100 Flower Patterns Procreate Brushes",
+    img: "https://cdn.creativefabrica.com/2026/03/03/100-Flower-Patterns-Procreate-brushes-Graphics-143801024-1-1-312x208.jpg",
+    images: ["https://cdn.creativefabrica.com/2026/03/03/100-Flower-Patterns-Procreate-brushes-Graphics-143801024-1-1-312x208.jpg", "https://cdn.creativefabrica.com/2026/03/03/100-Flower-Patterns-Procreate-brushes-Graphics-143801024-2-312x208.jpg", "https://cdn.creativefabrica.com/2026/03/03/100-Flower-Patterns-Procreate-brushes-Graphics-143801024-3-312x208.jpg"],
+    desc: "Flower pattern brushes for Procreate with decorative floral repeats, cute seamless motifs, and printable textile-inspired pattern design tools.",
+    link: "https://www.creativefabrica.com/product/100-flower-patterns-procreate-brushes/ref/8485983/?campaign=_websitecanva",
+    tags: ["patterns", "floral", "flowers", "stamps", "texture"],
+    category: ["patterns", "stamps", "texture"]
+  },
+  "260-kawaii-anime-hair-stamps-procreate": {
+    title: "260 Kawaii Anime Hair Stamps Procreate",
+    img: "https://cdn.creativefabrica.com/2026/03/11/260-Kawaii-Anime-Hair-Stamps-Procreate-Graphics-144461961-1-1-312x208.jpg",
+    images: ["https://cdn.creativefabrica.com/2026/03/11/260-Kawaii-Anime-Hair-Stamps-Procreate-Graphics-144461961-1-1-312x208.jpg", "https://cdn.creativefabrica.com/2026/03/11/260-Kawaii-Anime-Hair-Stamps-Procreate-Graphics-144461961-2-312x208.jpg", "https://cdn.creativefabrica.com/2026/03/11/260-Kawaii-Anime-Hair-Stamps-Procreate-Graphics-144461961-3-312x208.jpg"],
+    desc: "Kawaii anime hair stamps for Procreate with cute hairstyle bases, manga-friendly shapes, and fast character design helpers for stylized art.",
+    link: "https://www.creativefabrica.com/product/260-kawaii-anime-hair-stamps-procreate/ref/8485983/?campaign=_websitecanva",
+    tags: ["anime", "kawaii", "hair", "stamps", "manga", "character-design"],
+    category: ["anime", "stamps", "manga"]
+  },
+  "realistic-watercolor-procreate-brushes-3": {
+    title: "Realistic Watercolor Procreate Brushes",
+    img: "https://cdn.creativefabrica.com/2026/03/05/Realistic-Watercolor-Procreate-Brushes-Graphics-144041981-1-1-312x208.png",
+    images: ["https://cdn.creativefabrica.com/2026/03/05/Realistic-Watercolor-Procreate-Brushes-Graphics-144041981-1-1-312x208.png", "https://cdn.creativefabrica.com/2026/03/05/Realistic-Watercolor-Procreate-Brushes-Graphics-144041981-2-312x208.png", "https://cdn.creativefabrica.com/2026/03/05/Realistic-Watercolor-Procreate-Brushes-Graphics-144041981-3-312x208.png"],
+    desc: "Realistic watercolor brushes for Procreate with natural pigment texture, soft edges, layered washes, and painterly detail for botanical and animal art.",
+    link: "https://www.creativefabrica.com/product/realistic-watercolor-procreate-brushes-3/ref/8485983/?campaign=_websitecanva",
+    tags: ["watercolor", "painting", "realistic", "texture", "botanical"],
+    category: ["watercolor", "texture", "shading"]
+  },
+  "knit-pattern-brushes-for-procreate": {
+    title: "Knit Pattern Brushes for Procreate",
+    img: "https://cdn.creativefabrica.com/2026/03/04/Knit-Pattern-Brushes-for-Procreate-Graphics-143942463-1-1-312x208.png",
+    images: ["https://cdn.creativefabrica.com/2026/03/04/Knit-Pattern-Brushes-for-Procreate-Graphics-143942463-1-1-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Knit-Pattern-Brushes-for-Procreate-Graphics-143942463-2-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Knit-Pattern-Brushes-for-Procreate-Graphics-143942463-3-312x208.png"],
+    desc: "Knit pattern brushes for Procreate with cozy textile textures, sweater-inspired stitches, and hand-made fabric detail for illustrations and surface design.",
+    link: "https://www.creativefabrica.com/product/knit-pattern-brushes-for-procreate/ref/8485983/?campaign=_websitecanva",
+    tags: ["knit", "patterns", "texture", "fabric"],
+    category: ["patterns", "texture"]
+  },
+  "pattern-brushes-for-procreate-2": {
+    title: "Pattern Brushes for Procreate",
+    img: "https://cdn.creativefabrica.com/2026/03/04/Pattern-Brushes-for-Procreate-Graphics-143936551-1-1-312x208.png",
+    images: ["https://cdn.creativefabrica.com/2026/03/04/Pattern-Brushes-for-Procreate-Graphics-143936551-1-1-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Pattern-Brushes-for-Procreate-Graphics-143936551-2-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Pattern-Brushes-for-Procreate-Graphics-143936551-3-312x208.png"],
+    desc: "Pattern brushes for Procreate with repeat-ready motifs, graphic textures, and decorative fills for backgrounds, packaging, and surface design.",
+    link: "https://www.creativefabrica.com/product/pattern-brushes-for-procreate-2/ref/8485983/?campaign=_websitecanva",
+    tags: ["patterns", "texture", "backgrounds", "surface-design"],
+    category: ["patterns", "texture"]
+  },
+  "realistic-oil-paint-brushes": {
+    title: "Realistic Oil Paint Brushes",
+    img: "https://cdn.creativefabrica.com/2026/03/04/Realistic-Oil-Paint-Brushes-Graphics-143953444-1-1-312x208.png",
+    images: ["https://cdn.creativefabrica.com/2026/03/04/Realistic-Oil-Paint-Brushes-Graphics-143953444-1-1-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Realistic-Oil-Paint-Brushes-Graphics-143953444-2-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Realistic-Oil-Paint-Brushes-Graphics-143953444-3-312x208.png"],
+    desc: "Realistic oil paint brushes for Procreate with rich impasto-style strokes, portrait-friendly blending, and classic painted canvas texture.",
+    link: "https://www.creativefabrica.com/product/realistic-oil-paint-brushes/ref/8485983/?campaign=_websitecanva",
+    tags: ["oil-paint", "painting", "realistic", "shading", "texture"],
+    category: ["shading", "texture", "painting"]
+  },
+  "sketchbook-procreate-brushes-2": {
+    title: "Sketchbook Procreate Brushes",
+    img: "https://cdn.creativefabrica.com/2026/03/10/Sketchbook-Procreate-Brushes-Graphics-143939457-312x208.jpg",
+    images: ["https://cdn.creativefabrica.com/2026/03/10/Sketchbook-Procreate-Brushes-Graphics-143939457-312x208.jpg", "https://cdn.creativefabrica.com/2026/03/04/Sketchbook-Procreate-Brushes-Graphics-143939457-2-312x208.png", "https://cdn.creativefabrica.com/2026/03/04/Sketchbook-Procreate-Brushes-Graphics-143939457-3-312x208.png"],
+    desc: "Sketchbook-style Procreate brushes with natural drawing texture, painterly color, and versatile sketch tools for everyday illustration practice.",
+    link: "https://www.creativefabrica.com/product/sketchbook-procreate-brushes-2/ref/8485983/?campaign=_websitecanva",
+    tags: ["sketchbook", "sketch", "drawing", "texture", "pencil"],
+    category: ["sketchbook", "texture", "inking"]
+  },
   "100-calendar-stamps-for-procreate-2": {
     title: "100 Calendar Stamps For Procreate 2",
     img: "https://www.creativefabrica.com/wp-content/uploads/2025/12/15/100-Calendar-Stamps-for-Procreate-Graphics-137891222-1-312x208.jpg",

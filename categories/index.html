@@ -1,95 +1,41 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Categories</title>
-
+  <title>Categories | Treasure of Art Tools</title>
+  <meta name="description" content="Browse Procreate brush categories including watercolor, texture, anime, manga, tattoo, patterns, glitter, inking, and more." />
+  <link rel="canonical" href="https://brushesnow.com/categories/" />
+  <meta property="og:title" content="Categories | Treasure of Art Tools" />
+  <meta property="og:description" content="Explore curated Procreate brush categories, tags, and themed collections." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://brushesnow.com/categories/" />
+  <meta property="og:image" content="https://brushesnow.com/apple-touch-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/style_additions.css">
-
   <link rel="icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
-
 <body>
   <header>
     <h1>Treasure of Art Tools</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/categories/">Categories</a>
-      <a href="/privacy/">Privacy</a>
-    </nav>
+    <nav><a href="/">Home</a><a href="/categories/">Categories</a><a href="/privacy/">Privacy</a></nav>
   </header>
-
-  <section class="hero">
-    <h1>Categories</h1>
-    <p>Pick a category to explore curated Procreate brushes, stamps, textures, and packs.</p>
-  </section>
-
-  <main class="container">
-    <div class="card-container" id="catGrid"></div>
-  </main>
-
+  <section class="hero"><h1>Categories</h1><p>Pick a category to explore curated Procreate brushes, stamps, textures, and packs.</p></section>
+  <main class="container"><div class="card-container" id="catGrid"></div></main>
   <script src="/brushes.js"></script>
   <script>
     const BRUSHES = window.brushes || {};
-    const cats = [
-      { key: "stamps",     label: "Stamps",        kws: ["stamp", "stamps", "pose", "poses", "bases", "creator", "toolbox", "calendar", "tarot", "cards"] },
-      { key: "texture",    label: "Texture",       kws: ["texture", "grain", "paper", "wallpaper", "lace", "fabric", "clothes", "seamless"] },
-      { key: "anime",      label: "Anime",         kws: ["anime", "chibi", "manga", "pose", "poses", "couple"] },
-      { key: "shading",    label: "Shading",       kws: ["shading", "shade", "spitshading", "marker", "watercolor", "aquarelle", "pastel", "oil", "smoke"] },
-      { key: "manga",      label: "Manga",         kws: ["manga", "screentone", "halftone", "comic", "comics", "woodblock"] },
-      { key: "blackwhite", label: "Black & White", kws: ["black", "white", "ink", "inking", "crosshatch", "crosshatching", "line", "monochrome"] },
-      { key: "inking",     label: "Inking",        kws: ["inking", "ink", "lineart", "pencil", "pen"] },
-      { key: "tattoo",     label: "Tattoo",        kws: ["tattoo", "stencil"] },
-    ];
-
-    function textOf(b){
-      return ((b.title||"") + " " + (b.desc||"")).toLowerCase();
-    }
-
-    function matchCat(b, cat){
-      const t = textOf(b);
-      return cat.kws.some(k => t.includes(k));
-    }
-
-    function pickImagesFor(cat){
-      const imgs = [];
-      for (const [id,b] of Object.entries(BRUSHES)){
-        if (!b || !b.img) continue;
-        if (matchCat(b, cat)) imgs.push(b.img);
-        if (imgs.length >= 3) break;
-      }
-      return imgs;
-    }
-
-    function cardHTML(cat){
-      const imgs = pickImagesFor(cat);
-      const collage = imgs.length ? `
-        <div class="cat-collage">
-          ${imgs.map(u => `<img src="${u}" alt="${cat.label} preview" loading="lazy" />`).join("")}
-        </div>` : `
-        <div class="cat-collage cat-collage-empty"></div>
-      `;
-
-      return `
-        <div class="card category-card">
-          ${collage}
-          <h3>${cat.label}</h3>
-          <p>Explore this category.</p>
-          <a href="/category.html?cat=${cat.key}"><button>Open</button></a>
-        </div>
-      `;
-    }
-
-    const grid = document.getElementById("catGrid");
-    cats.forEach(cat => {
-      const imgs = pickImagesFor(cat);
-      if (imgs.length === 0) return; // hide empty categories
-      grid.insertAdjacentHTML("beforeend", cardHTML(cat));
-    });
+    const cats = [{"key": "watercolor", "label": "Watercolor", "kws": ["watercolor", "wet-wash", "splatter"]}, {"key": "stamps", "label": "Stamps", "kws": ["stamp", "stamps", "pose", "poses", "bases", "calendar", "tarot", "cards"]}, {"key": "texture", "label": "Texture", "kws": ["texture", "grain", "paper", "wallpaper", "lace", "fabric", "clothes", "seamless", "canvas"]}, {"key": "anime", "label": "Anime", "kws": ["anime", "chibi", "kawaii", "hair", "character-design", "couple"]}, {"key": "shading", "label": "Shading", "kws": ["shading", "shade", "marker", "pastel", "smoke", "blending", "oil", "acrylic"]}, {"key": "manga", "label": "Manga", "kws": ["manga", "screentone", "halftone", "comic", "woodblock"]}, {"key": "blackwhite", "label": "Black & White", "kws": ["blackwhite", "black and white", "monochrome", "grayscale", "crosshatch", "lineart", "ink"]}, {"key": "inking", "label": "Inking", "kws": ["inking", "ink", "lineart", "pencil", "pen"]}, {"key": "tattoo", "label": "Tattoo", "kws": ["tattoo", "stencil", "koi"]}, {"key": "patterns", "label": "Patterns", "kws": ["pattern", "patterns", "knit", "surface-design"]}, {"key": "glitter", "label": "Glitter", "kws": ["glitter", "sparkle", "effects"]}, {"key": "bubbles", "label": "Bubbles", "kws": ["bubbles"]}, {"key": "blending", "label": "Blending", "kws": ["blending"]}, {"key": "character-design", "label": "Character Design", "kws": ["character-design", "portraits"]}, {"key": "acrylic", "label": "Acrylic", "kws": ["acrylic"]}, {"key": "oil-paint", "label": "Oil Paint", "kws": ["oil-paint"]}, {"key": "sketchbook", "label": "Sketchbook", "kws": ["sketchbook", "sketch", "drawing"]}, {"key": "floral", "label": "Floral", "kws": ["floral", "flowers", "botanical"]}];
+    function textOf(b){ return ((b.title||'')+' '+(b.desc||'')+' '+((b.tags||[]).join(' '))+' '+((b.category||[]).join(' '))).toLowerCase(); }
+    function matchCat(b,cat){ const t=textOf(b); return cat.kws.some(k=>t.includes(k)); }
+    function pickImagesFor(cat){ const imgs=[]; for (const [id,b] of Object.entries(BRUSHES)){ if(!b||!b.img) continue; if(matchCat(b,cat)) imgs.push(b.img); if(imgs.length>=3) break; } return imgs; }
+    function cardHTML(cat){ const imgs=pickImagesFor(cat); const collage = imgs.length ? `<div class="cat-collage">${imgs.map(u=>`<img src="${u}" alt="${cat.label} preview" loading="lazy" />`).join('')}</div>` : `<div class="cat-collage cat-collage-empty"></div>`; return `<div class="card category-card">${collage}<h3>${cat.label}</h3><p>Explore this category.</p><a href="/category.html?cat=${cat.key}"><button>Open</button></a></div>`; }
+    const grid=document.getElementById('catGrid');
+    cats.forEach(cat=>{ const imgs=pickImagesFor(cat); if(imgs.length===0) return; grid.insertAdjacentHTML('beforeend', cardHTML(cat)); });
   </script>
 </body>
 </html>

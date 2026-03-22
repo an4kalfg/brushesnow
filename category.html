@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <title>Category | Treasure of Art Tools</title>
   <meta name="description" content="Browse Procreate brushes by category: watercolor, texture, anime, manga, tattoo, patterns, sketchbook, ink, and more."/>
-  <meta name="robots" content="index,follow"/>
+  <meta name="robots" content="noindex,follow"/>
   <link rel="canonical" id="canonical-link" href="https://brushesnow.com/category.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" id="og-title" content="Category | Treasure of Art Tools" />
@@ -73,14 +73,15 @@
   document.getElementById('h1').textContent = titleBase;
   document.title = `${titleBase} | Treasure of Art Tools`;
   document.getElementById('sub').textContent = cat ? `Browse ${titleMap[cat] || cat} Procreate brushes, textures, stamps, and related packs.` : 'Browse curated brush packs and stamps.';
-  document.getElementById('canonical-link').href = `https://brushesnow.com/category.html?cat=${encodeURIComponent(cat)}`;
+  const prettyCatUrl = cat ? `https://brushesnow.com/tags/${encodeURIComponent(cat)}/` : 'https://brushesnow.com/categories/';
+  document.getElementById('canonical-link').href = prettyCatUrl;
   document.getElementById('og-title').setAttribute('content', titleBase);
   document.getElementById('og-desc').setAttribute('content', document.getElementById('sub').textContent);
-  document.getElementById('og-url').setAttribute('content', `https://brushesnow.com/category.html?cat=${encodeURIComponent(cat)}`);
+  document.getElementById('og-url').setAttribute('content', prettyCatUrl);
 
   const filtered = Object.entries(brushes).filter(([id,b]) => !cat || inferTags(b).includes(cat));
   const grid = document.getElementById('grid');
-  grid.innerHTML = filtered.length ? filtered.map(([id,b])=>`<div class="card"><img src="${b.img}" alt="${(b.title||'').replace(/"/g,'&quot;')}"><h3>${b.title||''}</h3><p>${b.desc||''}</p><a href="brush.html?id=${encodeURIComponent(id)}" class="btn btn-primary">Download</a></div>`).join('') : '<div style="padding:20px;text-align:center;width:100%;"><h2>No items yet</h2><p>Try another category.</p></div>';
+  grid.innerHTML = filtered.length ? filtered.map(([id,b])=>`<div class="card"><img src="${b.img}" alt="${(b.title||'').replace(/"/g,'&quot;')}"><h3>${b.title||''}</h3><p>${b.desc||''}</p><a href="brush.html?id=${encodeURIComponent(id)}" class="btn btn-primary">View Details</a></div>`).join('') : '<div style="padding:20px;text-align:center;width:100%;"><h2>No items yet</h2><p>Try another category.</p></div>';
 </script>
 </body>
 </html>

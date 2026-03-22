@@ -33,7 +33,7 @@
     function textOf(b){ return ((b.title||'')+' '+(b.desc||'')+' '+((b.tags||[]).join(' '))+' '+((b.category||[]).join(' '))).toLowerCase(); }
     function matchCat(b,cat){ const t=textOf(b); return cat.kws.some(k=>t.includes(k)); }
     function pickImagesFor(cat){ const imgs=[]; for (const [id,b] of Object.entries(BRUSHES)){ if(!b||!b.img) continue; if(matchCat(b,cat)) imgs.push(b.img); if(imgs.length>=3) break; } return imgs; }
-    function cardHTML(cat){ const imgs=pickImagesFor(cat); const collage = imgs.length ? `<div class="cat-collage">${imgs.map(u=>`<img src="${u}" alt="${cat.label} preview" loading="lazy" />`).join('')}</div>` : `<div class="cat-collage cat-collage-empty"></div>`; return `<div class="card category-card">${collage}<h3>${cat.label}</h3><p>Explore this category.</p><a href="/category.html?cat=${cat.key}"><button>Open</button></a></div>`; }
+    function cardHTML(cat){ const imgs=pickImagesFor(cat); const collage = imgs.length ? `<div class="cat-collage">${imgs.map(u=>`<img src="${u}" alt="${cat.label} preview" loading="lazy" />`).join('')}</div>` : `<div class="cat-collage cat-collage-empty"></div>`; return `<div class="card category-card">${collage}<h3>${cat.label}</h3><p>Explore this category.</p><a href="/tags/${cat.key}/" class="btn btn-primary">Open</a></div>`; }
     const grid=document.getElementById('catGrid');
     cats.forEach(cat=>{ const imgs=pickImagesFor(cat); if(imgs.length===0) return; grid.insertAdjacentHTML('beforeend', cardHTML(cat)); });
   </script>

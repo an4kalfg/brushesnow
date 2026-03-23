@@ -160,7 +160,7 @@
       document.getElementById('og-url').setAttribute('content', `https://brushesnow.com/brush.html?id=${encodeURIComponent(id)}`);
       document.getElementById('tw-title').setAttribute('content', title);
       document.getElementById('tw-desc').setAttribute('content', clean.slice(0,160));
-      const ld = {"@context":"https://schema.org","@type":"Product","name":title,"description":clean,"image":(Array.isArray(data.images) && data.images.length ? data.images : [data.img]).map(normalizeCfUrl).filter(Boolean),"url":`https://brushesnow.com/brush.html?id=${encodeURIComponent(id)}`};
+      const ld = {"@context":"https://schema.org","@type":"CreativeWork","name":title,"description":clean,"image":(Array.isArray(data.images) && data.images.length ? data.images : [data.img]).map(normalizeCfUrl).filter(Boolean),"url":`https://brushesnow.com/brush.html?id=${encodeURIComponent(id)}`};
       const s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(ld); document.head.appendChild(s);
     } else {
       document.body.innerHTML = '<h1>Brush not found</h1><p>Please check the link or return to the homepage.</p>';

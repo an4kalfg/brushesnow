@@ -55,7 +55,7 @@
   </style>
 </head>
 <body>
-  <div class="topnav"><a href="/">Home</a><a href="/categories/">Categories</a><a href="/privacy/">Privacy</a></div>
+  <div class="topnav"><a href="/">Home</a><a href="/categories/">Categories</a><a href="/guides/">Guides</a><a href="/privacy/">Privacy</a></div>
   <h1 id="brush-title">Loading...</h1>
   <div class="gallery-wrap">
     <div class="gallery-main">
@@ -67,6 +67,7 @@
   </div>
   <p id="brush-desc"></p>
   <div class="meta-note" id="tagline"></div>
+  <div class="related-guides-box" id="related-guides" style="display:none;"><h2>Explore matching guides</h2><ul id="related-guides-list"></ul></div>
   <a id="brush-link" class="btn" href="#" target="_blank" rel="noopener">Download</a>
   <script src="brushes.js"></script>
   <script>
@@ -74,6 +75,28 @@
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
     const imgEl = document.getElementById('brush-img');
+    const relatedGuidesEl = document.getElementById('related-guides');
+    const relatedGuidesListEl = document.getElementById('related-guides-list');
+    const GUIDE_MATCHES = [
+      {title:'Best Procreate Brushes', url:'/guides/best-procreate-brushes/', kws:['brush','painting','illustration','texture','watercolor','shading']},
+      {title:'Free Procreate Brushes', url:'/guides/free-procreate-brushes/', kws:['brush','starter','texture','watercolor','patterns']},
+      {title:'Procreate Stamp Brushes', url:'/guides/procreate-stamp-brushes/', kws:['stamp','stamps','pose','calendar','tarot','light beam','house','map']},
+      {title:'Texture Procreate Brushes', url:'/guides/texture-procreate-brushes/', kws:['texture','grain','paper','fabric','wallpaper','lace','canvas']},
+      {title:'Watercolor Procreate Brushes', url:'/guides/watercolor-procreate-brushes/', kws:['watercolor','wet wash','splatter','aquarelle']},
+      {title:'Anime Procreate Brushes', url:'/guides/anime-procreate-brushes/', kws:['anime','manga','hair','kawaii','couple','faces','character']},
+      {title:'Sketch Procreate Brushes', url:'/guides/sketch-procreate-brushes/', kws:['sketch','sketchbook','pencil','drawing']},
+      {title:'Ink Procreate Brushes', url:'/guides/ink-procreate-brushes/', kws:['ink','inking','lineart','crosshatching','halftone']},
+      {title:'Shading Procreate Brushes', url:'/guides/shading-procreate-brushes/', kws:['shading','blending','smoke','grain','marker','oil','pastel']},
+      {title:'Character Design Procreate Brushes', url:'/guides/character-design-procreate-brushes/', kws:['character','portrait','hair','faces','pose']},
+      {title:'Procreate Brushes for Beginners', url:'/guides/procreate-brushes-for-beginners/', kws:['beginner','starter','basic','drawing','pencil']}
+    ];
+    function renderRelatedGuides(data){
+      var hay = ((data.title||'') + ' ' + (data.desc||'') + ' ' + (Array.isArray(data.tags)?data.tags.join(' '):'') + ' ' + (Array.isArray(data.category)?data.category.join(' '):'')).toLowerCase();
+      var matches = GUIDE_MATCHES.filter(function(g){ return g.kws.some(function(k){ return hay.indexOf(k) !== -1; }); }).slice(0,4);
+      if (!matches.length) return;
+      relatedGuidesListEl.innerHTML = matches.map(function(g){ return '<li><a href="' + g.url + '">' + g.title + '</a></li>'; }).join('');
+      relatedGuidesEl.style.display = 'block';
+    }
     const thumbsEl = document.getElementById('thumbs');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -151,6 +174,7 @@
       document.getElementById("brush-desc").textContent = data.desc || '';
       document.getElementById("brush-link").href = data.link || '#';
       document.getElementById('tagline').textContent = Array.isArray(data.tags) ? `Tags: ${data.tags.join(', ')}` : '';
+      renderRelatedGuides(data);
       const clean = (data.desc || '').replace(/\s+/g,' ').trim();
       document.title = `${title} | Treasure of Art Tools`;
       document.querySelector('meta[name="description"]').setAttribute('content', clean.slice(0, 160));

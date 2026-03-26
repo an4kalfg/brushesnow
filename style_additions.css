@@ -174,3 +174,24 @@
 .hero .btn:visited{
   color: #ffffff !important;
 }
+
+
+/* ===== Guides pages ===== */
+.guides-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+.guide-card{background:#fff;border-radius:10px;padding:20px;width:280px;box-shadow:0 0 5px rgba(0,0,0,0.1);text-align:center;}
+.guide-card h3{margin:0 0 10px;font-size:22px;line-height:1.2;}
+.guide-card p{margin:0 0 12px;line-height:1.55;color:#374151;}
+.guide-card .btn{display:inline-block;text-decoration:none;}
+.section-lead{max-width:860px;margin:0 auto 22px;text-align:center;color:#4b5563;line-height:1.7;}
+.guide-copy{max-width:960px;margin:0 auto 34px;background:#fff;border-radius:10px;padding:24px 24px 6px;box-shadow:0 0 5px rgba(0,0,0,0.06);}
+.guide-copy p{color:#374151;line-height:1.75;margin:0 0 18px;}
+.guide-copy h2{font-size:28px;margin:0 0 14px;color:#111827;}
+.breadcrumbs{max-width:1100px;margin:20px auto 0;padding:0 20px;color:#6b7280;font-size:14px;}
+.breadcrumbs a{text-decoration:none;color:#6b7280;}
+.guide-note{max-width:960px;margin:20px auto 0;padding:0 20px;text-align:center;color:#6b7280;line-height:1.7;}
+.related-guides-box{margin-top:20px;padding:16px 18px;background:#f5f7fb;border:1px solid #e5e7eb;border-radius:12px;}
+.related-guides-box h2{font-size:20px;margin:0 0 10px;color:#111827;}
+.related-guides-box ul{margin:0;padding-left:18px;}
+.related-guides-box li{margin:0 0 8px;}
+.related-guides-box a{text-decoration:none;color:#0f766e;font-weight:600;}
+@media (max-width: 760px){.guide-copy{padding:20px 16px 4px;}.guide-copy h2{font-size:24px;}.guide-card{width:100%;max-width:340px;}}

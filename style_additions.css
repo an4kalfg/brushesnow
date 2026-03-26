@@ -195,3 +195,7 @@
 .related-guides-box li{margin:0 0 8px;}
 .related-guides-box a{text-decoration:none;color:#0f766e;font-weight:600;}
 @media (max-width: 760px){.guide-copy{padding:20px 16px 4px;}.guide-copy h2{font-size:24px;}.guide-card{width:100%;max-width:340px;}}
+
+/* Tighter spacing between About and Contact on homepage */
+#about.section{padding-bottom: 12px;}
+#contact.section{padding-top: 12px;}
